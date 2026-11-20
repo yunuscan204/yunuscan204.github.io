@@ -1,4 +1,4 @@
-const CACHE_NAME = "koltuktr-v344-cache-v1";
+const CACHE_NAME = "koltuktr-v345-cache-v1";
 const ASSETS = [
     "./",
     "./index.html",

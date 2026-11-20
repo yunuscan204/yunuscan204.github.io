@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/koltuktr-icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <title>KoltukTr v3.4.4 Ultimate - 81 İl Koltuk &amp; Halı Saha Yönetim Sistemi</title>
+    <title>KoltukTr v3.4.5 Ultimate - 81 İl Koltuk &amp; Halı Saha Yönetim Sistemi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -355,7 +355,7 @@
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <div>
                     <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-2 py-0.5 rounded-full font-extrabold">ONLINE RANDEVU & FİYAT HESAPLA</span>
-                    <h1 class="text-lg font-extrabold text-white mt-1" id="obBizTitle">Son Sistem Koltuk & Halı</h1>
+                    <h1 class="text-lg font-extrabold text-white mt-1" id="obBizTitle">KoltukTr Online Randevu</h1>
                 </div>
                 <button id="obExitAdminBtn" onclick="exitOnlineBookingMode()" class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1.5 rounded-xl font-bold">Yöneticiye Dön</button>
             </div>
@@ -398,7 +398,7 @@
                     <div>
                         <div class="flex items-center space-x-1.5">
                             <h1 class="text-base font-extrabold text-white">KoltukTr</h1>
-                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 px-1.5 py-0.5 rounded">v3.4.4 Ultimate</span>
+                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 px-1.5 py-0.5 rounded">v3.4.5 Ultimate</span>
                         </div>
                         <p class="text-[11px] text-slate-400">E-posta ile kaydol, referans koduyla ekibini bağla</p>
                     </div>
@@ -444,7 +444,7 @@
                         <div class="grid grid-cols-2 gap-1.5">
                             <div>
                                 <label class="text-[10px] text-slate-400 font-bold">İşletme / Ekip Adı</label>
-                                <input type="text" id="authRegBizName" value="Son Sistem Koltuk" placeholder="Firma Adınız" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-white">
+                                <input type="text" id="authRegBizName" value="" placeholder="Firma Adınız" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-white">
                             </div>
                             <div>
                                 <label class="text-[10px] text-slate-400 font-bold">Şehir (81 İl)</label>
@@ -474,7 +474,7 @@
                     <div id="authJoinTeamFields" class="hidden space-y-2">
                         <div>
                             <label class="text-[10px] text-amber-400 font-bold">Ekip Yöneticisinin Paylaştığı Referans Kodu *</label>
-                            <input type="text" id="authRegJoinRefCode" placeholder="Örn: KTR-8A4D2E veya SONSISTEM01" class="w-full bg-slate-900 border border-amber-600 rounded-xl px-3 py-2 text-amber-300 font-mono font-extrabold uppercase tracking-wider">
+                            <input type="text" id="authRegJoinRefCode" placeholder="Örn: KTR-8A4D2E" class="w-full bg-slate-900 border border-amber-600 rounded-xl px-3 py-2 text-amber-300 font-mono font-extrabold uppercase tracking-wider">
                         </div>
                         <p class="text-[10px] text-slate-400">Referans kodunu girdiğinizde ekip arkadaşlarınızın ortak randevu defteri, harita, kasa ve bina hafızasına doğrudan bağlanırsınız.</p>
                     </div>
@@ -549,11 +549,11 @@
                     <div class="min-w-0">
                         <div class="flex items-center space-x-1">
                             <span class="font-extrabold text-sm tracking-tight text-white truncate" id="headerBusinessTitle">KoltukTr</span>
-                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/60 px-1.5 py-0.5 rounded">v3.4.4</span>
+                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/60 px-1.5 py-0.5 rounded">v3.4.5</span>
                         </div>
                         <button onclick="openCloudModal()" class="flex items-center space-x-1 text-[10px] text-emerald-400 truncate mt-0.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" id="cloudDot"></span>
-                            <span id="cloudStatusText" class="truncate">Bulut (SONSISTEM01)</span>
+                            <span id="cloudStatusText" class="truncate">Bulut Bağlantısı</span>
                         </button>
                     </div>
                 </div>
@@ -985,7 +985,7 @@
                 <input type="text" id="setBizIban" placeholder="IBAN ve Alıcı Adı" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white">
                 <div>
                     <label class="text-[10px] text-cyan-300 font-bold">🏪 Sabit Dükkan / Başlangıç Adresi (Gidiş-Geliş KM Başlangıcı)</label>
-                    <input type="text" id="setDepotAddress" placeholder="Örn: Mehmet Akif Mah. ..., Dulkadiroğlu / Kahramanmaraş veya Çukurova / Adana" class="w-full bg-slate-950 border border-cyan-800/70 rounded-xl px-3 py-2 text-xs text-white mt-0.5">
+                    <input type="text" id="setDepotAddress" placeholder="Örn: Atatürk Cad. No:10, Merkez / İl" class="w-full bg-slate-950 border border-cyan-800/70 rounded-xl px-3 py-2 text-xs text-white mt-0.5">
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
@@ -2360,7 +2360,7 @@
             <div class="space-y-2 text-[11px] text-slate-300 leading-relaxed">
                 <p><strong class="text-white">1. Veri Sorumlusu ve Kapsam:</strong> KoltukTr uygulaması, halı ve koltuk yıkama işletmelerinin kendi randevu, rota, tahsilat ve müşteri kayıtlarını yönetmesi amacıyla geliştirilmiş bir saha yönetim yazılımıdır.</p>
                 <p><strong class="text-white">2. İşlenen Veriler:</strong> Kullanıcı kaydı sırasında ad-soyad, e-posta ve Firebase Authentication ile güvenli biçimde şifrelenmiş kimlik bilgileri saklanır. İşletme içi girilen müşteri adı, telefon, adres, sesli not, imza ve öncesi/sonrası görselleri yalnızca ilgili işletmenin kendi ekip odasında tutulur.</p>
-                <p><strong class="text-white">3. Erişim ve Ekip Güvenliği:</strong> Her ekip kendi referans koduyla izole odada çalışır. Ekip yöneticileri yeni üye katılımı için yönetici onayı zorunluluğu getirebilir ve ayrılan personelin erişimini tek tuşla sonlandırabilir.</p>
+                <p><strong class="text-white">3. Erişim ve Ekip Güvenliği:</strong> Her ekip kendi referans koduyla izole odada çalışır. Ekip yöneticileri yeni üye katılımı için sunucu bazlı (memberUids) yönetici onayı kilidini yönetebilir ve ayrılan personelin erişimini anında sonlandırabilir.</p>
                 <p><strong class="text-white">4. Veri Silme ve Yedekleme Hakları:</strong> Kullanıcılar Ayarlar sekmesinden tüm ekip verilerini JSON olarak dışa aktarabilir, ekip kayıtlarını temizleyebilir veya hesaplarını kalıcı olarak silebilir.</p>
             </div>
             <button onclick="document.getElementById('kvkkModal').classList.add('hidden')" class="w-full bg-emerald-600 text-white font-extrabold py-2.5 rounded-xl">Anladım</button>
@@ -2371,7 +2371,7 @@
     <div id="toastBox" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-800 border border-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-2xl"></div>
 
     <script>
-        const APP_VERSION = "v3.4.4";
+        const APP_VERSION = "v3.4.5";
         const DEFAULT_FIREBASE_URL = "https://koltuktr-7f600-default-rtdb.europe-west1.firebasedatabase.app";
         const FIREBASE_CONFIG = {
             apiKey: "AIzaSyBm5EhPDPhr__P3Z6kL2m5MHelRSkuGAHQ",
@@ -2522,11 +2522,83 @@
             return res;
         }
 
-        function buildRevokedUidsMap() {
+        function buildRevokedUidsMap(remoteMeta = null, includeRemote = false) {
             const map = {};
             const list = Array.isArray(state.revokedUids) ? state.revokedUids : [];
             list.forEach(u => { if (u) map[String(u)] = true; });
+            if (includeRemote && remoteMeta && remoteMeta.revokedUids) {
+                if (Array.isArray(remoteMeta.revokedUids)) {
+                    remoteMeta.revokedUids.forEach(u => { if (u) map[String(u)] = true; });
+                } else if (typeof remoteMeta.revokedUids === "object") {
+                    Object.keys(remoteMeta.revokedUids).forEach(k => { if (remoteMeta.revokedUids[k]) map[String(k)] = true; });
+                }
+            }
             return map;
+        }
+
+        function buildMemberUidsMap(extraUid = "", remoteMeta = null, includeRemoteRevoked = false) {
+            const map = {};
+            const revokedMap = buildRevokedUidsMap(remoteMeta, includeRemoteRevoked);
+            const isRev = (u) => !!(u && revokedMap[String(u)]);
+            if (remoteMeta && remoteMeta.memberUids && typeof remoteMeta.memberUids === "object") {
+                Object.keys(remoteMeta.memberUids).forEach(k => { if (remoteMeta.memberUids[k] && !isRev(k)) map[k] = true; });
+            }
+            (Array.isArray(state.teamMembers) ? state.teamMembers : []).forEach(m => {
+                if (m && m.uid && !isRev(m.uid)) map[String(m.uid)] = true;
+            });
+            if (remoteMeta && Array.isArray(remoteMeta.members)) {
+                remoteMeta.members.forEach(m => {
+                    if (m && m.uid && !isRev(m.uid)) map[String(m.uid)] = true;
+                });
+            }
+            const ownUid = extraUid || state.ownerUid || (currentUser?.role === "owner" ? currentUser.uid : "");
+            if (ownUid) map[String(ownUid)] = true;
+            if (currentUser?.uid && !currentUser.pendingApproval && !isRev(currentUser.uid)) {
+                map[String(currentUser.uid)] = true;
+            }
+            return map;
+        }
+
+        function isCurrentUserTeamOwner(remoteMeta = null) {
+            if (!currentUser?.uid) return false;
+            const remoteOwner = remoteMeta?.ownerUid || state.ownerUid || "";
+            if (remoteOwner) return remoteOwner === currentUser.uid;
+            return currentUser.role === "owner";
+        }
+
+        function isUidApprovedInMeta(meta, uid, email = "") {
+            if (!meta || typeof meta !== "object") return false;
+            if (uid && meta.ownerUid && meta.ownerUid === uid) return true;
+            if (uid && meta.memberUids && typeof meta.memberUids === "object" && meta.memberUids[uid] === true) return true;
+            if (!meta.memberUids && Array.isArray(meta.members)) {
+                const low = String(email || "").toLowerCase();
+                if (meta.members.some(m => (uid && m.uid === uid) || (low && String(m.email || "").toLowerCase() === low))) return true;
+            }
+            return false;
+        }
+
+        function buildTeamMetaObject(teamCode, nowTs = Date.now(), remoteMeta = null, explicitOwnerUid = "", preserveRemoteFields = false) {
+            const ownerUid = explicitOwnerUid || state.ownerUid || remoteMeta?.ownerUid || (currentUser?.role === "owner" ? currentUser.uid : "") || currentUser?.uid || "";
+            if (ownerUid && !state.ownerUid) state.ownerUid = ownerUid;
+            const bizName = preserveRemoteFields
+                ? (remoteMeta?.businessName || state.business?.name || "KoltukTr")
+                : (state.business?.name || remoteMeta?.businessName || "KoltukTr");
+            const bizCity = preserveRemoteFields
+                ? (remoteMeta?.city || state.business?.city || "Adana")
+                : (state.business?.city || remoteMeta?.city || "Adana");
+            const reqAppr = preserveRemoteFields && typeof remoteMeta?.requireApproval === "boolean"
+                ? remoteMeta.requireApproval
+                : (state.requireApproval !== false);
+            return {
+                teamCode,
+                ownerUid,
+                businessName: bizName,
+                city: bizCity,
+                requireApproval: reqAppr,
+                memberUids: buildMemberUidsMap(ownerUid, remoteMeta, preserveRemoteFields),
+                revokedUids: buildRevokedUidsMap(remoteMeta, preserveRemoteFields),
+                updatedAt: nowTs
+            };
         }
         const STORAGE_KEY = "koltuktr_v22_state";
         const AUTH_SESSION_KEY = "koltuktr_v27_auth_session";
@@ -2601,7 +2673,7 @@
             carpetStageFilter: "ALL",
             activeUsta: "Usta Seç",
             ustas: [],
-            business: { name: "Son Sistem Koltuk", phone: "0539 721 76 93", iban: "TR00...", city: "Adana", depotAddress: "", roadFactor: 1.32, instagram: "@sonsistemkoltuk", districts: [{ name: "Çukurova", km: 8, minBasket: 800 }, { name: "Seyhan", km: 10, minBasket: 800 }, { name: "Yüreğir", km: 15, minBasket: 1000 }, { name: "Sarıçam", km: 22, minBasket: 1200 }, { name: "Karaisalı", km: 48, minBasket: 2000 }, { name: "Ceyhan", km: 50, minBasket: 2200 }], unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 },
+            business: { name: "KoltukTr", phone: "", iban: "", city: "Adana", depotAddress: "", roadFactor: 1.32, instagram: "", districts: [{ name: "Çukurova", km: 8, minBasket: 800 }, { name: "Seyhan", km: 10, minBasket: 800 }, { name: "Yüreğir", km: 15, minBasket: 1000 }, { name: "Sarıçam", km: 22, minBasket: 1200 }, { name: "Karaisalı", km: 48, minBasket: 2000 }, { name: "Ceyhan", km: 50, minBasket: 2200 }], unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 },
             appointments: [],
             haliAppointments: [],
             expenses: [],
@@ -2619,6 +2691,7 @@
             koltukServices: JSON.parse(JSON.stringify(DEFAULT_KOLTUK_SERVICES)),
             haliServices: JSON.parse(JSON.stringify(DEFAULT_HALI_SERVICES)),
             deletedIds: [],
+            ownerUid: "",
             teamMembers: [],
             revokedEmails: [],
             revokedUids: [],
@@ -2628,7 +2701,7 @@
             fuelLogs: [],
             delegatedJobs: [],
             backupSettings: { frequency: "weekly", lastAutoBackupAt: 0, lastJsonDownloadAt: 0, lastBackupLabel: "", maxSnapshots: 10 },
-            cloud: { teamCode: "SONSISTEM01", firebaseUrl: DEFAULT_FIREBASE_URL, emailjsPublicKey: "", emailjsServiceId: "", emailjsTemplateId: "" }
+            cloud: { teamCode: "", firebaseUrl: DEFAULT_FIREBASE_URL, emailjsPublicKey: "", emailjsServiceId: "", emailjsTemplateId: "" }
         };
 
         let editingApptId = null;
@@ -2955,22 +3028,39 @@
             }
             const latest = q[q.length - 1];
             try {
-                const tc = normalizeRefCode(latest.payload?.teamCode || state.cloud?.teamCode || "SONSISTEM01");
+                const tc = normalizeRefCode(latest.payload?.teamCode || state.cloud?.teamCode || "");
+                if (!tc) { saveOfflineQueue([]); return; }
                 const dataUrl = `${fbUrl}/koltuktr_teams/${tc}/data.json`;
                 const metaUrl = `${fbUrl}/koltuktr_teams/${tc}/meta.json`;
-                const r1 = await fbFetch(dataUrl, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(latest.payload.lightState)
-                });
-                const r2 = await fbFetch(metaUrl, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(latest.payload.metaObj)
-                });
-                if (r1.ok && r2.ok) {
+                const nowTs = Number(latest.payload.metaObj?.updatedAt || Date.now());
+                const ownerWrite = isCurrentUserTeamOwner(latest.payload.metaObj);
+                let rMeta, rData;
+                if (ownerWrite) {
+                    rMeta = await fbFetch(metaUrl, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(latest.payload.metaObj)
+                    });
+                    rData = await fbFetch(dataUrl, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(latest.payload.lightState)
+                    });
+                } else {
+                    rData = await fbFetch(dataUrl, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(latest.payload.lightState)
+                    });
+                    rMeta = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta/updatedAt.json`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(nowTs)
+                    });
+                }
+                if (rData.ok && rMeta.ok) {
                     saveOfflineQueue([]);
-                    lastSyncedRemoteUpdatedAt = Number(latest.payload.metaObj?.updatedAt || Date.now());
+                    lastSyncedRemoteUpdatedAt = nowTs;
                     showToast("✅ Bekleyen çevrimdışı işlemler buluta aktarıldı!");
                 } else {
                     throw new Error("HTTP sync error");
@@ -3040,7 +3130,7 @@
                 `• Kuyruktaki İşlem: ${q.length}`,
                 `• Otomatik Yedek: ${bFreq} (Son: ${bLast})`,
                 `• Toplam İş Kaydı: ${allAppts.length} | Müşteri: ${custCount} | Bina: ${bldCount}`,
-                `• Ekip Kodu: ${normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01")}`
+                `• Ekip Kodu: ${normalizeRefCode(state.cloud?.teamCode || "") || "Tanımlı Değil"}`
             ].join("\n");
             alert(msg);
             if (q.length && navigator.onLine) flushOfflineQueueNow();
@@ -3054,20 +3144,21 @@
             if (!Array.isArray(state.inventory) || !state.inventory.length) state.inventory = JSON.parse(JSON.stringify(DEFAULT_INVENTORY));
             if (!Array.isArray(state.koltukServices) || !state.koltukServices.length) state.koltukServices = JSON.parse(JSON.stringify(DEFAULT_KOLTUK_SERVICES));
             if (!Array.isArray(state.haliServices) || !state.haliServices.length) state.haliServices = JSON.parse(JSON.stringify(DEFAULT_HALI_SERVICES));
-            if (!state.business || typeof state.business !== "object") state.business = { name: "Son Sistem Koltuk", phone: "0539 721 76 93", iban: "TR00...", unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 };
+            if (!state.business || typeof state.business !== "object") state.business = { name: "KoltukTr", phone: "", iban: "", unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 };
             if (!state.business.unitChemCost) state.business.unitChemCost = 75;
             if (!state.business.kmFuelCost) state.business.kmFuelCost = 4.5;
             if (typeof state.business.peakSeasonActive !== "boolean") state.business.peakSeasonActive = false;
             if (typeof state.business.peakSeasonPct !== "number") state.business.peakSeasonPct = 15;
             if (!state.business.city) state.business.city = "Adana";
-            if (!state.business.instagram) state.business.instagram = "@sonsistemkoltuk";
+            if (typeof state.business.instagram !== "string") state.business.instagram = "";
             if (!Array.isArray(state.business.districts) || !state.business.districts.length) {
                 state.business.districts = getDefaultDistrictObjsForCity(state.business.city);
             }
+            if (typeof state.ownerUid !== "string") state.ownerUid = "";
             if (typeof state.requireApproval !== "boolean") state.requireApproval = true;
-            if (!state.cloud || typeof state.cloud !== "object") state.cloud = { teamCode: "SONSISTEM01", firebaseUrl: DEFAULT_FIREBASE_URL };
+            if (!state.cloud || typeof state.cloud !== "object") state.cloud = { teamCode: "", firebaseUrl: DEFAULT_FIREBASE_URL };
             state.cloud.firebaseUrl = DEFAULT_FIREBASE_URL;
-            if (!state.cloud.teamCode) state.cloud.teamCode = "SONSISTEM01";
+            if (typeof state.cloud.teamCode !== "string") state.cloud.teamCode = "";
             if (!state.selectedDate) state.selectedDate = getTodayIso();
             if (!state.stripStartDate) state.stripStartDate = addDaysIso(state.selectedDate, -1);
             if (!state.workMode || (state.workMode !== "koltuk" && state.workMode !== "hali")) state.workMode = "koltuk";
@@ -3078,7 +3169,6 @@
                 state.backupSettings.frequency = "weekly";
             }
             if (!state.backupSettings.maxSnapshots) state.backupSettings.maxSnapshots = 10;
-            if (state.activeUsta === "\u004devlana") state.activeUsta = "Usta Seç";
         }
 
         // =========================================================================
@@ -3398,7 +3488,7 @@
 
             if (currentUser && targetEmail) {
                 const userKey = encodeEmailKey(targetEmail);
-                let userRec = lu[userKey] || { uid: currentUser.uid || "", email: targetEmail, name: newName, role: currentUser.role || "owner", teamCode: state.cloud?.teamCode || "SONSISTEM01" };
+                let userRec = lu[userKey] || { uid: currentUser.uid || "", email: targetEmail, name: newName, role: currentUser.role || "owner", teamCode: state.cloud?.teamCode || "" };
                 if (fbUrl && userKey) {
                     try {
                         const r = await fbFetch(`${fbUrl}/koltuktr_users/${userKey}.json`);
@@ -3485,9 +3575,16 @@
                 return;
             }
 
+            const delTc = normalizeRefCode(state.cloud?.teamCode || currentUser.teamCode || "");
+            const wasOwner = isCurrentUserTeamOwner();
             state.teamMembers = (state.teamMembers || []).filter(m => (m.email || "").toLowerCase() !== email);
             saveState(false);
             await pushToCloudSmart(false);
+            if (fbUrl && delTc && !wasOwner && authData.uid) {
+                try {
+                    await fbFetch(`${fbUrl}/koltuktr_teams/${delTc}/meta/memberUids/${encodeURIComponent(authData.uid)}.json`, { method: "DELETE" }, authData.idToken);
+                } catch (e) {}
+            }
 
             if (fbUrl) {
                 try {
@@ -3544,8 +3641,9 @@
                     cancelPendingApprovalAndLogout();
                     return;
                 }
-                const members = Array.isArray(meta.members) ? meta.members : [];
-                if (members.some(m => String(m.email || "").toLowerCase() === email)) {
+                if (isUidApprovedInMeta(meta, myUid, email)) {
+                    if (meta.ownerUid) state.ownerUid = meta.ownerUid;
+                    state.cloud.teamCode = tc;
                     currentUser.pendingApproval = false;
                     try { localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(currentUser)); } catch (e) {}
                     document.getElementById("authPendingPanel").classList.add("hidden");
@@ -3592,8 +3690,11 @@
             const reqObj = (pendingJoinRequests || []).find(r => r.key === reqKey);
             const reqUid = reqObj?.uid || "";
             if (!Array.isArray(state.teamMembers)) state.teamMembers = [];
-            if (!state.teamMembers.some(m => (m.email || "").toLowerCase() === low)) {
+            const exIdx = state.teamMembers.findIndex(m => (m.email || "").toLowerCase() === low);
+            if (exIdx < 0) {
                 state.teamMembers.push({ uid: reqUid, email: low, name: name || "Üye", role: "member", joinedAt: getTodayIso() });
+            } else if (reqUid && !state.teamMembers[exIdx].uid) {
+                state.teamMembers[exIdx].uid = reqUid;
             }
             state.revokedEmails = (state.revokedEmails || []).filter(e => String(e).toLowerCase() !== low);
             if (reqUid) state.revokedUids = (state.revokedUids || []).filter(u => u !== reqUid);
@@ -3608,7 +3709,8 @@
                     });
                 } catch (e) {}
             }
-            saveState(true);
+            saveState(false);
+            await pushToCloudSmart(false);
             await fetchPendingJoinRequests();
             renderCloudModalContent();
             showToast(`✅ ${name} ekibe onaylandı!`);
@@ -3647,7 +3749,8 @@
                     });
                 } catch (e) {}
             }
-            saveState(true);
+            saveState(false);
+            await pushToCloudSmart(false);
             await fetchPendingJoinRequests();
             renderCloudModalContent();
             showToast(`🚫 ${name} katılım talebi reddedildi.`);
@@ -3661,7 +3764,7 @@
             showToast(state.requireApproval ? "🔒 Yönetici onayı açıldı." : "🔓 Referans kodunu girenler doğrudan katılabilir.");
         }
 
-        function revokeTeamMember(email) {
+        async function revokeTeamMember(email) {
             const low = String(email || "").toLowerCase();
             if (!low || low === (currentUser?.email || "").toLowerCase()) return;
             if (!confirm(`${low} kullanıcısının bu ekipteki erişimini kesmek istediğinize emin misiniz?`)) return;
@@ -3673,7 +3776,8 @@
                 if (!Array.isArray(state.revokedUids)) state.revokedUids = [];
                 if (!state.revokedUids.includes(targetMember.uid)) state.revokedUids.push(targetMember.uid);
             }
-            saveState(true);
+            saveState(false);
+            await pushToCloudSmart(false);
             renderCloudModalContent();
             showToast(`🚫 ${low} ekipten çıkarıldı ve sunucu erişimi kesildi.`);
         }
@@ -3813,7 +3917,8 @@
                 carpetStageFilter: "ALL",
                 activeUsta: ownerUser.name || "Usta Seç",
                 ustas: ownerUser.name ? [{ name: ownerUser.name, device: "Mobil" }] : [],
-                business: { name: businessName || "Son Sistem Koltuk", phone: "0539 721 76 93", iban: "TR00...", unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 },
+                ownerUid: ownerUser.role === "owner" ? (ownerUser.uid || "") : "",
+                business: { name: businessName || "KoltukTr", phone: "", iban: "", unitChemCost: 75, kmFuelCost: 4.5, peakSeasonActive: false, peakSeasonPct: 15 },
                 appointments: [],
                 haliAppointments: [],
                 expenses: [],
@@ -3827,7 +3932,7 @@
                 koltukServices: JSON.parse(JSON.stringify(DEFAULT_KOLTUK_SERVICES)),
                 haliServices: JSON.parse(JSON.stringify(DEFAULT_HALI_SERVICES)),
                 deletedIds: [],
-                teamMembers: [{ email: ownerUser.email, name: ownerUser.name, role: ownerUser.role, joinedAt: new Date().toISOString().slice(0, 10) }],
+                teamMembers: [{ uid: ownerUser.uid || "", email: ownerUser.email, name: ownerUser.name, role: ownerUser.role, joinedAt: new Date().toISOString().slice(0, 10) }],
                 cloud: { teamCode: teamCode, firebaseUrl: DEFAULT_FIREBASE_URL },
                 updatedAt: Date.now()
             };
@@ -3898,10 +4003,10 @@
                     showAuthMessage("⚠️ Referans kodu en az 4 karakter olmalıdır.");
                     return;
                 }
-                const bizName = (document.getElementById("authRegBizName").value || "Son Sistem Koltuk").trim();
+                const bizName = (document.getElementById("authRegBizName").value || "").trim() || "KoltukTr";
                 const bizCity = document.getElementById("authRegCity")?.value || "Adana";
-                const bizPhone = (document.getElementById("authRegBizPhone")?.value || "").trim() || "0539 721 76 93";
-                const bizInsta = (document.getElementById("authRegBizInsta")?.value || "").trim() || "@sonsistemkoltuk";
+                const bizPhone = (document.getElementById("authRegBizPhone")?.value || "").trim();
+                const bizInsta = (document.getElementById("authRegBizInsta")?.value || "").trim();
 
                 if (fbUrl) {
                     try {
@@ -3924,6 +4029,7 @@
                     try {
                         const parsedLegacy = JSON.parse(legacyRaw);
                         teamState = Object.assign(createFreshTeamState(teamCode, bizName, fbUrl, ownerObj), parsedLegacy);
+                        teamState.ownerUid = authInfo.uid;
                         teamState.cloud = { teamCode, firebaseUrl: fbUrl };
                         teamState.business = Object.assign({}, teamState.business, { name: bizName, city: bizCity, phone: bizPhone, instagram: bizInsta, districts: getDefaultDistrictObjsForCity(bizCity) });
                     } catch (e) {
@@ -3943,32 +4049,26 @@
                     return;
                 }
 
-                let foundRemote = null;
+                let rMeta = null;
                 if (fbUrl) {
                     try {
-                        const tRes = await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}.json`, {}, authInfo.idToken);
-                        if (tRes.ok) foundRemote = await tRes.json();
-                        if (!foundRemote) {
-                            const legRes = await fbFetch(`${fbUrl}/koltuktr_accounts/TEAM_${teamCode}.json`, {}, authInfo.idToken);
-                            if (legRes.ok) {
-                                const legData = await legRes.json();
-                                if (legData) foundRemote = { data: legData, meta: { teamCode, members: [] } };
-                            }
-                        }
+                        const mRes = await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}/meta.json`, {}, authInfo.idToken);
+                        if (mRes.ok) rMeta = await mRes.json();
                     } catch (e) {}
                 }
 
-                if (foundRemote && (foundRemote.data || foundRemote.meta)) {
-                    const rMeta = foundRemote.meta || {};
+                if (rMeta && rMeta.teamCode) {
                     const rRevoked = Array.isArray(rMeta.revokedEmails) ? rMeta.revokedEmails.map(e => String(e).toLowerCase()) : [];
-                    if (rRevoked.includes(email)) {
+                    const rUids = rMeta.revokedUids;
+                    const uidRev = !!(authInfo.uid && (Array.isArray(rUids) ? rUids.includes(authInfo.uid) : (rUids && typeof rUids === "object" && rUids[authInfo.uid])));
+                    if (rRevoked.includes(email) || uidRev) {
                         await fbAuthDeleteAccount(authInfo.idToken);
                         showAuthMessage("⛔ Bu ekibe erişiminiz yönetici tarafından kısıtlanmıştır.");
                         return;
                     }
-                    const rMembers = Array.isArray(rMeta.members) ? rMeta.members : [];
-                    const alreadyMember = rMembers.some(m => String(m.email || "").toLowerCase() === email);
-                    if (rMeta.requireApproval && !alreadyMember) {
+                    const alreadyMember = isUidApprovedInMeta(rMeta, authInfo.uid, email);
+                    const requiresApproval = rMeta.requireApproval !== false;
+                    if (requiresApproval && !alreadyMember) {
                         const userRecordPend = { uid: authInfo.uid, email, name, role: "member", teamCode, firebaseUrl: fbUrl, createdAt: Date.now() };
                         localUsers[emailKey] = userRecordPend;
                         saveLocalUsersMap(localUsers);
@@ -3985,7 +4085,24 @@
                         showPendingApprovalView(teamCode);
                         return;
                     }
-                    teamState = foundRemote.data || createFreshTeamState(teamCode, rMeta.businessName || "Ortak Ekip", fbUrl, { uid: authInfo.uid, email, name, role: "member" });
+                    if (!alreadyMember && !requiresApproval) {
+                        try {
+                            await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}/meta/memberUids/${encodeURIComponent(authInfo.uid)}.json`, {
+                                method: "PUT",
+                                headers: { "Content-Type": "application/json" },
+                                body: "true"
+                            }, authInfo.idToken);
+                        } catch (e) {}
+                    }
+                    let remoteData = null;
+                    try {
+                        const dRes = await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}/data.json`, {}, authInfo.idToken);
+                        if (dRes.ok) remoteData = await dRes.json();
+                    } catch (e) {}
+                    teamState = (remoteData && typeof remoteData === "object")
+                        ? Object.assign(createFreshTeamState(teamCode, rMeta.businessName || "Ortak Ekip", fbUrl, { uid: authInfo.uid, email, name, role: "member" }), remoteData)
+                        : createFreshTeamState(teamCode, rMeta.businessName || "Ortak Ekip", fbUrl, { uid: authInfo.uid, email, name, role: "member" });
+                    if (rMeta.ownerUid) teamState.ownerUid = rMeta.ownerUid;
                     teamState.cloud = { teamCode, firebaseUrl: fbUrl };
                 } else if (localTeams[teamCode] && localTeams[teamCode].state) {
                     teamState = localTeams[teamCode].state;
@@ -4002,6 +4119,7 @@
             saveLocalUsersMap(localUsers);
 
             state = teamState;
+            if (role === "owner") state.ownerUid = authInfo.uid;
             ensureStateIntegrity();
             persistActiveSession({
                 uid: authInfo.uid,
@@ -4015,11 +4133,10 @@
                 tokenExpiresAt: authInfo.tokenExpiresAt
             });
 
-            // Attach uid to teamMember entry
             state.teamMembers = (state.teamMembers || []).map(m => ((m.email || "").toLowerCase() === email ? Object.assign({}, m, { uid: authInfo.uid }) : m));
 
             localTeams[teamCode] = {
-                meta: { teamCode, ownerEmail: role === "owner" ? email : (localTeams[teamCode]?.meta?.ownerEmail || ""), businessName: state.business.name, members: state.teamMembers },
+                meta: buildTeamMetaObject(teamCode, Date.now(), null, role === "owner" ? authInfo.uid : (state.ownerUid || "")),
                 state: state
             };
             saveLocalTeamsMap(localTeams);
@@ -4027,11 +4144,13 @@
             if (fbUrl) {
                 try {
                     await fbFetch(`${fbUrl}/koltuktr_users/${emailKey}.json`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(userRecord) }, authInfo.idToken);
-                    await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}/meta.json`, {
-                        method: "PUT",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ teamCode, businessName: state.business.name, city: state.business.city || "Adana", requireApproval: state.requireApproval !== false, members: state.teamMembers, revokedEmails: state.revokedEmails || [], revokedUids: buildRevokedUidsMap(), updatedAt: Date.now() })
-                    }, authInfo.idToken);
+                    if (role === "owner") {
+                        await fbFetch(`${fbUrl}/koltuktr_teams/${teamCode}/meta.json`, {
+                            method: "PUT",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(buildTeamMetaObject(teamCode, Date.now(), null, authInfo.uid))
+                        }, authInfo.idToken);
+                    }
                 } catch (e) {}
             }
 
@@ -4072,7 +4191,7 @@
                 userRec = localUsers[emailKey] || null;
             }
             if (!userRec) {
-                userRec = { uid: authInfo.uid, email, name: email.split("@")[0], role: "owner", teamCode: "SONSISTEM01", firebaseUrl: fbUrl };
+                userRec = { uid: authInfo.uid, email, name: email.split("@")[0], role: "owner", teamCode: generateRandomRefCode(), firebaseUrl: fbUrl };
             }
             if (userRec.deleted) {
                 showAuthMessage("⛔ Bu hesap kalıcı olarak silinmiş.");
@@ -4080,40 +4199,61 @@
             }
             userRec.uid = authInfo.uid;
 
-            const teamCode = normalizeRefCode(userRec.teamCode || "SONSISTEM01");
+            const teamCode = normalizeRefCode(userRec.teamCode || generateRandomRefCode());
+            userRec.teamCode = teamCode;
             const activeFb = DEFAULT_FIREBASE_URL;
             const localTeams = getLocalTeamsMap();
 
-            // Önce meta.json ile yetki, iptal ve yönetici onayı denetimi
-            if (activeFb && userRec.role !== "owner") {
+            // Önce meta.json ile yetki, iptal, yönetici onayı ve v3.4.5 katı üye kilidi denetimi
+            let loginRemoteMeta = null;
+            if (activeFb) {
                 try {
                     const mRes = await fbFetch(`${activeFb}/koltuktr_teams/${teamCode}/meta.json`, {}, authInfo.idToken);
-                    if (mRes.ok) {
-                        const rMeta = await mRes.json();
-                        if (rMeta) {
-                            const rRev = Array.isArray(rMeta.revokedEmails) ? rMeta.revokedEmails.map(e => String(e).toLowerCase()) : [];
-                            const rUids = rMeta.revokedUids;
-                            const uidRev = !!(authInfo.uid && (Array.isArray(rUids) ? rUids.includes(authInfo.uid) : (rUids && typeof rUids === "object" && rUids[authInfo.uid])));
-                            if (rRev.includes(email) || uidRev) {
-                                showAuthMessage("⛔ Bu ekibe erişiminiz yönetici tarafından kaldırılmıştır.");
-                                currentUser = null;
-                                try { localStorage.removeItem(AUTH_SESSION_KEY); } catch (e) {}
-                                return;
-                            }
-                            const rMem = Array.isArray(rMeta.members) ? rMeta.members : [];
-                            if (rMeta.requireApproval && !rMem.some(m => String(m.email || "").toLowerCase() === email)) {
-                                currentUser = {
-                                    uid: authInfo.uid, email: userRec.email, name: userRec.name, role: "member",
-                                    teamCode, firebaseUrl: activeFb, idToken: authInfo.idToken,
-                                    refreshToken: authInfo.refreshToken, tokenExpiresAt: authInfo.tokenExpiresAt, pendingApproval: true
-                                };
-                                try { localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(currentUser)); } catch (e) {}
-                                showPendingApprovalView(teamCode);
-                                return;
-                            }
+                    if (mRes.ok) loginRemoteMeta = await mRes.json();
+                } catch (e) {}
+            }
+            if (loginRemoteMeta) {
+                if (loginRemoteMeta.ownerUid && loginRemoteMeta.ownerUid === authInfo.uid) {
+                    userRec.role = "owner";
+                }
+                if (userRec.role !== "owner") {
+                    const rRev = Array.isArray(loginRemoteMeta.revokedEmails) ? loginRemoteMeta.revokedEmails.map(e => String(e).toLowerCase()) : [];
+                    const rUids = loginRemoteMeta.revokedUids;
+                    const uidRev = !!(authInfo.uid && (Array.isArray(rUids) ? rUids.includes(authInfo.uid) : (rUids && typeof rUids === "object" && rUids[authInfo.uid])));
+                    if (rRev.includes(email) || uidRev) {
+                        showAuthMessage("⛔ Bu ekibe erişiminiz yönetici tarafından kaldırılmıştır.");
+                        currentUser = null;
+                        try { localStorage.removeItem(AUTH_SESSION_KEY); } catch (e) {}
+                        return;
+                    }
+                    const approved = isUidApprovedInMeta(loginRemoteMeta, authInfo.uid, email);
+                    if (!approved) {
+                        if (loginRemoteMeta.requireApproval !== false) {
+                            currentUser = {
+                                uid: authInfo.uid, email: userRec.email, name: userRec.name, role: "member",
+                                teamCode, firebaseUrl: activeFb, idToken: authInfo.idToken,
+                                refreshToken: authInfo.refreshToken, tokenExpiresAt: authInfo.tokenExpiresAt, pendingApproval: true
+                            };
+                            try { localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(currentUser)); } catch (e) {}
+                            showPendingApprovalView(teamCode);
+                            return;
+                        } else {
+                            try {
+                                await fbFetch(`${activeFb}/koltuktr_teams/${teamCode}/meta/memberUids/${encodeURIComponent(authInfo.uid)}.json`, {
+                                    method: "PUT", headers: { "Content-Type": "application/json" }, body: "true"
+                                }, authInfo.idToken);
+                            } catch (e) {}
                         }
                     }
-                } catch (e) {}
+                } else if (!loginRemoteMeta.ownerUid || !loginRemoteMeta.memberUids) {
+                    try {
+                        const upgradedMeta = buildTeamMetaObject(teamCode, Date.now(), loginRemoteMeta, authInfo.uid, true);
+                        await fbFetch(`${activeFb}/koltuktr_teams/${teamCode}/meta.json`, {
+                            method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(upgradedMeta)
+                        }, authInfo.idToken);
+                        loginRemoteMeta = upgradedMeta;
+                    } catch (e) {}
+                }
             }
 
             let loadedRemoteTeam = false;
@@ -4123,7 +4263,7 @@
                     if (tRes.ok) {
                         const rData = await tRes.json();
                         if (rData && typeof rData === "object") {
-                            state = Object.assign(createFreshTeamState(teamCode, "Son Sistem Koltuk", activeFb, userRec), rData);
+                            state = Object.assign(createFreshTeamState(teamCode, "KoltukTr", activeFb, userRec), rData);
                             loadedRemoteTeam = true;
                         }
                     }
@@ -4133,9 +4273,11 @@
                 if (localTeams[teamCode] && localTeams[teamCode].state) {
                     state = localTeams[teamCode].state;
                 } else {
-                    state = createFreshTeamState(teamCode, "Son Sistem Koltuk", activeFb, userRec);
+                    state = createFreshTeamState(teamCode, "KoltukTr", activeFb, userRec);
                 }
             }
+            if (loginRemoteMeta?.ownerUid) state.ownerUid = loginRemoteMeta.ownerUid;
+            else if (userRec.role === "owner") state.ownerUid = authInfo.uid;
             state.cloud = { teamCode, firebaseUrl: activeFb };
             ensureStateIntegrity();
             lastSyncedRemoteUpdatedAt = 0;
@@ -4178,7 +4320,8 @@
         }
 
         function copyTeamRefCode() {
-            const code = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const code = normalizeRefCode(state.cloud?.teamCode || "");
+            if (!code) { showToast("⚠️ Ekip kodu henüz tanımlanmadı."); return; }
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(code).then(() => showToast(`📋 Referans kodu kopyalandı: ${code}`)).catch(() => showToast(`🔑 Referans Kodunuz: ${code}`));
             } else {
@@ -4195,6 +4338,7 @@
             const newCode = generateRandomRefCode();
             const oldCode = normalizeRefCode(state.cloud?.teamCode || "");
             state.cloud.teamCode = newCode;
+            if (currentUser?.uid) state.ownerUid = currentUser.uid;
             lastSyncedRemoteUpdatedAt = 0;
             cloudBackupsCache = [];
             hasFetchedCloudBackupsOnce = false;
@@ -4210,7 +4354,7 @@
                 }
             }
             const localTeams = getLocalTeamsMap();
-            localTeams[newCode] = { meta: { teamCode: newCode, businessName: state.business.name, members: state.teamMembers }, state: state };
+            localTeams[newCode] = { meta: buildTeamMetaObject(newCode, Date.now(), null, currentUser?.uid || state.ownerUid || ""), state: state };
             if (oldCode && localTeams[oldCode]) delete localTeams[oldCode];
             saveLocalTeamsMap(localTeams);
 
@@ -4231,26 +4375,23 @@
 
             if (fbUrl) {
                 try {
-                    const res = await fbFetch(`${fbUrl}/koltuktr_teams/${newCode}.json`);
-                    if (res.ok) {
-                        const d = await res.json();
-                        if (d && (d.data || d.meta)) {
-                            remoteMeta = d.meta || {};
-                            targetState = d.data || createFreshTeamState(newCode, remoteMeta.businessName || "Ortak Ekip", fbUrl, currentUser || { email: "", name: "Üye", role: "member" });
-                        }
+                    const mRes = await fbFetch(`${fbUrl}/koltuktr_teams/${newCode}/meta.json`);
+                    if (mRes.ok) {
+                        const m = await mRes.json();
+                        if (m && m.teamCode) remoteMeta = m;
                     }
                 } catch (e) {}
             }
-            if (!targetState && localTeams[newCode]?.state) {
+            if (!remoteMeta && localTeams[newCode]?.state) {
                 targetState = localTeams[newCode].state;
                 remoteMeta = localTeams[newCode]?.meta || {};
             }
-            if (!targetState) {
+            if (!remoteMeta && !targetState) {
                 showToast(`❌ "${newCode}" referans kodlu ekip bulunamadı.`);
                 return;
             }
 
-            // Çıkarılmış üye ve yönetici onayı denetimi
+            // Çıkarılmış üye ve yönetici onayı denetimi (data.json indirmeden önce)
             const rRevoked = Array.isArray(remoteMeta?.revokedEmails) ? remoteMeta.revokedEmails.map(e => String(e).toLowerCase()) : [];
             const myUid = currentUser?.uid || "";
             const rUids = remoteMeta?.revokedUids;
@@ -4259,18 +4400,18 @@
                 showToast("⛔ Bu ekibe erişiminiz yönetici tarafından kısıtlanmıştır.");
                 return;
             }
-            const rMembers = Array.isArray(remoteMeta?.members) ? remoteMeta.members : (Array.isArray(targetState.teamMembers) ? targetState.teamMembers : []);
-            const existingMember = myEmail ? rMembers.find(m => String(m.email || "").toLowerCase() === myEmail) : null;
-            const requiresApproval = remoteMeta?.requireApproval !== undefined ? !!remoteMeta.requireApproval : !!targetState.requireApproval;
+            const isApproved = isUidApprovedInMeta(remoteMeta, myUid, myEmail);
+            const isOwnerOfTarget = Boolean(myUid && remoteMeta?.ownerUid && remoteMeta.ownerUid === myUid);
+            const requiresApproval = remoteMeta?.requireApproval !== false;
 
-            if (myEmail && requiresApproval && !existingMember) {
+            if (myEmail && requiresApproval && !isApproved) {
                 const ek = encodeEmailKey(myEmail);
                 if (fbUrl) {
                     try {
                         await fbFetch(`${fbUrl}/koltuktr_teams/${newCode}/requests/${ek}.json`, {
                             method: "PUT",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ uid: currentUser.uid || "", email: myEmail, name: currentUser.name || "Üye", status: "pending", requestedAt: getTodayIso(), updatedAt: Date.now() })
+                            body: JSON.stringify({ uid: myUid, email: myEmail, name: currentUser.name || "Üye", status: "pending", requestedAt: getTodayIso(), updatedAt: Date.now() })
                         });
                     } catch (e) {}
                 }
@@ -4294,7 +4435,31 @@
                 return;
             }
 
+            if (fbUrl && !isApproved && !requiresApproval && myUid) {
+                try {
+                    await fbFetch(`${fbUrl}/koltuktr_teams/${newCode}/meta/memberUids/${encodeURIComponent(myUid)}.json`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: "true"
+                    });
+                } catch (e) {}
+            }
+
+            if (fbUrl && !targetState) {
+                try {
+                    const dRes = await fbFetch(`${fbUrl}/koltuktr_teams/${newCode}/data.json`);
+                    if (dRes.ok) {
+                        const d = await dRes.json();
+                        if (d && typeof d === "object") targetState = d;
+                    }
+                } catch (e) {}
+            }
+            if (!targetState) {
+                targetState = createFreshTeamState(newCode, remoteMeta?.businessName || "Ortak Ekip", fbUrl, currentUser || { email: "", name: "Üye", role: "member" });
+            }
+
             state = targetState;
+            if (remoteMeta?.ownerUid) state.ownerUid = remoteMeta.ownerUid;
             state.cloud = { teamCode: newCode, firebaseUrl: fbUrl };
             ensureStateIntegrity();
             lastSyncedRemoteUpdatedAt = 0;
@@ -4302,7 +4467,7 @@
             hasFetchedCloudBackupsOnce = false;
             if (currentUser) {
                 currentUser.teamCode = newCode;
-                currentUser.role = existingMember?.role || "member";
+                currentUser.role = isOwnerOfTarget ? "owner" : "member";
                 currentUser.pendingApproval = false;
                 persistActiveSession(currentUser);
                 const localUsers = getLocalUsersMap();
@@ -4322,7 +4487,7 @@
         }
 
         function renderCloudModalContent() {
-            const code = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const code = normalizeRefCode(state.cloud?.teamCode || "") || "YOK";
             const disp = document.getElementById("modalTeamRefCodeDisplay");
             if (disp) disp.textContent = code;
             const uName = document.getElementById("modalUserName");
@@ -4443,14 +4608,7 @@
                 if (tc) {
                     const localTeams = getLocalTeamsMap();
                     localTeams[tc] = {
-                        meta: {
-                            teamCode: tc,
-                            businessName: state.business?.name || "Son Sistem Koltuk",
-                            members: state.teamMembers || [],
-                            revokedEmails: state.revokedEmails || [],
-                        revokedUids: buildRevokedUidsMap(),
-                            requireApproval: state.requireApproval !== false
-                        },
+                        meta: buildTeamMetaObject(tc, state.updatedAt),
                         state: safeLight
                     };
                     saveLocalTeamsMap(localTeams);
@@ -4460,15 +4618,15 @@
         }
 
         function getTeamCloudPath() {
-            const code = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01") || "SONSISTEM01";
-            return `koltuktr_teams/${code}/data.json`;
+            const code = normalizeRefCode(state.cloud?.teamCode || "");
+            return code ? `koltuktr_teams/${code}/data.json` : "";
         }
 
         function updateCloudStatusBadge() {
             const txt = document.getElementById("cloudStatusText");
             const dot = document.getElementById("cloudDot");
-            const code = (state.cloud?.teamCode || "SONSISTEM01").toUpperCase();
-            const hasUrl = !!(state.cloud?.firebaseUrl || "").trim();
+            const code = normalizeRefCode(state.cloud?.teamCode || "") || "YOK";
+            const hasUrl = !!(state.cloud?.firebaseUrl || "").trim() && code !== "YOK";
             if (txt) txt.textContent = hasUrl ? `Bulut (${code})` : `Yerel (${code})`;
             if (dot) dot.className = hasUrl ? "w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" : "w-1.5 h-1.5 rounded-full bg-amber-400";
         }
@@ -4515,6 +4673,8 @@
                 ? remote.revokedUids
                 : (remote.revokedUids && typeof remote.revokedUids === "object" ? Object.keys(remote.revokedUids).filter(k => remote.revokedUids[k]) : []);
             state.revokedUids = Array.from(new Set([...(Array.isArray(state.revokedUids) ? state.revokedUids : []), ...remUidsArr].filter(Boolean)));
+            const revokedUidsSet = new Set(state.revokedUids.map(String));
+            if (remote.ownerUid && !state.ownerUid) state.ownerUid = remote.ownerUid;
 
             if (Number(remote.updatedAt || 0) >= Number(state.updatedAt || 0)) {
                 if (Array.isArray(remote.koltukServices) && remote.koltukServices.length) state.koltukServices = remote.koltukServices;
@@ -4526,7 +4686,7 @@
                 [...(Array.isArray(remote.teamMembers) ? remote.teamMembers : []), ...(state.teamMembers || [])].forEach(m => {
                     if (!m || !m.email) return;
                     const low = String(m.email).trim().toLowerCase();
-                    if (revokedSet.has(low)) return;
+                    if (revokedSet.has(low) || (m.uid && revokedUidsSet.has(String(m.uid)))) return;
                     mMap.set(low, m);
                 });
                 state.teamMembers = Array.from(mMap.values());
@@ -4558,19 +4718,22 @@
 
         async function pushToCloudSmart(forceOverwrite = false) {
             const fbUrl = getActiveFirebaseBaseUrl();
-            if (!fbUrl) return;
+            const tc = normalizeRefCode(state.cloud?.teamCode || "");
+            if (!fbUrl || !tc || !currentUser || currentUser.pendingApproval) return;
             if (isCloudSyncing) { pendingCloudPush = true; if (forceOverwrite) pendingCloudForceOverwrite = true; return; }
             isCloudSyncing = true;
-            const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
             const nowTs = Date.now();
             let lightState = null;
             let metaObj = null;
+            let fetchedRemoteMeta = null;
             try {
                 if (!forceOverwrite) {
                     try {
                         const mRes = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta.json`);
                         if (mRes.ok) {
                             const rMeta = await mRes.json();
+                            fetchedRemoteMeta = rMeta;
+                            if (rMeta?.ownerUid) state.ownerUid = rMeta.ownerUid;
                             if (rMeta && enforceCurrentUserRevocation(rMeta)) return;
                             if (rMeta && Number(rMeta.updatedAt || 0) > lastSyncedRemoteUpdatedAt) {
                                 const rRes = await fbFetch(`${fbUrl}/${getTeamCloudPath()}`);
@@ -4587,30 +4750,36 @@
 
                 state.updatedAt = nowTs;
                 lightState = stripMediaForCloudState(state);
-                metaObj = {
-                    teamCode: tc,
-                    businessName: state.business?.name || "Son Sistem Koltuk",
-                    city: state.business?.city || "Adana",
-                    requireApproval: state.requireApproval !== false,
-                    members: state.teamMembers || [],
-                    revokedEmails: state.revokedEmails || [],
-                    revokedUids: buildRevokedUidsMap(),
-                    updatedAt: nowTs
-                };
+                metaObj = buildTeamMetaObject(tc, nowTs, fetchedRemoteMeta);
                 try { localStorage.setItem(STORAGE_KEY, JSON.stringify(lightState)); } catch (e) {}
 
-                const r1 = await fbFetch(`${fbUrl}/${getTeamCloudPath()}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(lightState)
-                });
-                const r2 = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta.json`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(metaObj)
-                });
-                if (!r1.ok || !r2.ok) {
-                    throw new Error(`Cloud PUT failed (${r1.status}/${r2.status})`);
+                const ownerWrite = isCurrentUserTeamOwner(fetchedRemoteMeta);
+                let rMeta, rData;
+                if (ownerWrite) {
+                    rMeta = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta.json`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(metaObj)
+                    });
+                    rData = await fbFetch(`${fbUrl}/${getTeamCloudPath()}`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(lightState)
+                    });
+                } else {
+                    rData = await fbFetch(`${fbUrl}/${getTeamCloudPath()}`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(lightState)
+                    });
+                    rMeta = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta/updatedAt.json`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(nowTs)
+                    });
+                }
+                if (!rData.ok || !rMeta.ok) {
+                    throw new Error(`Cloud PUT failed (${rData.status}/${rMeta.status})`);
                 }
                 lastSyncedRemoteUpdatedAt = nowTs;
                 if (getOfflineQueue().length) saveOfflineQueue([]);
@@ -4633,11 +4802,10 @@
 
         async function pullFromCloudNow(silent = false) {
             const fbUrl = getActiveFirebaseBaseUrl();
-            if (!fbUrl || isCloudSyncing) return;
+            const tc = normalizeRefCode(state.cloud?.teamCode || "");
+            if (!fbUrl || !tc || !currentUser || currentUser.pendingApproval || isCloudSyncing) return;
             isCloudSyncing = true;
             try {
-                const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
-                // Akıllı Delta Kontrolü: Önce yalnızca küçük meta.json (~300 byte) çek
                 let remoteMeta = null;
                 try {
                     const mRes = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta.json`);
@@ -4645,9 +4813,25 @@
                 } catch (e) {}
 
                 if (remoteMeta) {
+                    if (remoteMeta.ownerUid) {
+                        state.ownerUid = remoteMeta.ownerUid;
+                        if (currentUser?.uid && remoteMeta.ownerUid === currentUser.uid) currentUser.role = "owner";
+                    }
                     if (enforceCurrentUserRevocation(remoteMeta)) return;
+
+                    if ((!remoteMeta.ownerUid || !remoteMeta.memberUids) && currentUser?.role === "owner" && currentUser?.uid) {
+                        try {
+                            const upgradedMeta = buildTeamMetaObject(tc, Date.now(), remoteMeta, currentUser.uid, true);
+                            const uRes = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/meta.json`, {
+                                method: "PUT",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(upgradedMeta)
+                            });
+                            if (uRes.ok) remoteMeta = upgradedMeta;
+                        } catch (e) {}
+                    }
+
                     if (silent && Number(remoteMeta.updatedAt || 0) > 0 && Number(remoteMeta.updatedAt) === lastSyncedRemoteUpdatedAt) {
-                        // Değişiklik yok — data.json indirmeden trafiği %99 koru!
                         return;
                     }
                 }
@@ -6247,12 +6431,12 @@
             if (suEmail) suEmail.textContent = currentUser ? `${currentUser.email} • ${currentUser.role === 'owner' ? '👑 Yönetici' : '👷 Ekip Üyesi'}` : "Yerel Oturum";
             if (suPhone) suPhone.textContent = `📞 ${profPhone || "Telefon girilmedi"} • 🏢 ${state.business?.name || "Firma"}`;
             const tcEl = document.getElementById("setTeamCode");
-            if (tcEl) tcEl.value = state.cloud.teamCode || "SONSISTEM01";
-            document.getElementById("setBizName").value = state.business.name || "Son Sistem Koltuk";
-            document.getElementById("setBizPhone").value = state.business.phone || "0539 721 76 93";
+            if (tcEl) tcEl.value = state.cloud.teamCode || "";
+            document.getElementById("setBizName").value = state.business.name || "";
+            document.getElementById("setBizPhone").value = state.business.phone || "";
             populateCitySelectElement("setBizCity", state.business.city || "Adana");
             const igEl = document.getElementById("setBizInstagram");
-            if (igEl) igEl.value = state.business.instagram || "@sonsistemkoltuk";
+            if (igEl) igEl.value = state.business.instagram || "";
             document.getElementById("setBizIban").value = state.business.iban || "";
             const depEl = document.getElementById("setDepotAddress");
             if (depEl) depEl.value = state.business.depotAddress || "";
@@ -6464,7 +6648,8 @@
             if (btn && !silent) btn.textContent = "⏳ Yedekleniyor...";
             try {
                 ensureStateIntegrity();
-                const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+                const tc = normalizeRefCode(state.cloud?.teamCode || "");
+                if (!tc) { if (!silent) showToast("⚠️ Önce bir ekip koduna bağlanın."); return false; }
                 const nowTs = Date.now();
                 const backupId = `bkp_${nowTs}`;
                 const snapshot = stripMediaForCloudState(state);
@@ -6573,7 +6758,8 @@
                 listEl.innerHTML = `<div class="text-[10px] text-slate-400 text-center py-2">⏳ Bulut yedekleri yükleniyor...</div>`;
             }
             try {
-                const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+                const tc = normalizeRefCode(state.cloud?.teamCode || "");
+                if (!tc) return;
                 const res = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/backups.json`);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const obj = await res.json();
@@ -6640,7 +6826,8 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
         async function deleteCloudBackupById(backupId) {
             if (!confirm("Bu bulut yedeğini kalıcı olarak silmek istediğinize emin misiniz?")) return;
             const fbUrl = getActiveFirebaseBaseUrl();
-            const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const tc = normalizeRefCode(state.cloud?.teamCode || "");
+            if (!tc) return;
             try {
                 const res = await fbFetch(`${fbUrl}/koltuktr_teams/${tc}/backups/${encodeURIComponent(backupId)}.json`, { method: "DELETE" });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -6751,6 +6938,7 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
             if (!confirm(`"${newCode}" yeni ekip odası olarak tanımlansın ve mevcut verileriniz oraya taşınsın mı?`)) return;
 
             state.cloud.teamCode = newCode;
+            if (currentUser?.uid) state.ownerUid = currentUser.uid;
             state.cloud.firebaseUrl = DEFAULT_FIREBASE_URL;
             lastSyncedRemoteUpdatedAt = 0;
             cloudBackupsCache = [];
@@ -6775,8 +6963,8 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
         }
 
         function saveBizSettings() {
-            state.business.name = document.getElementById("setBizName").value.trim() || "Son Sistem Koltuk";
-            state.business.phone = document.getElementById("setBizPhone").value.trim() || "0539 721 76 93";
+            state.business.name = document.getElementById("setBizName").value.trim() || "KoltukTr";
+            state.business.phone = document.getElementById("setBizPhone").value.trim();
             const cityVal = document.getElementById("setBizCity")?.value;
             if (cityVal) state.business.city = cityVal;
             const igVal = (document.getElementById("setBizInstagram")?.value || "").trim();
@@ -7186,7 +7374,7 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
             if (!c) return;
             const ctx = c.getContext("2d");
             const a = findApptById(apptId) || {
-                receiptNo: "#K-101", customerName: "Örnek Müşteri", phone: "0539 721 76 93",
+                receiptNo: "#K-101", customerName: "Örnek Müşteri", phone: "05XX XXX XX XX",
                 date: getTodayIso(), time: "11:00", district: "Çukurova", address: "Adana",
                 servicesText: "1x Koltuk Takımı (3+3+1+1)", price: 1500, paidAmount: 1500, paid: true, paymentMethod: "Nakit", asperoxRisk: false, signature: ""
             };
@@ -7497,7 +7685,7 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
         // Referral Jar
         function openReferralJarModal() {
             document.getElementById("referralJarModal").classList.remove("hidden");
-            const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const tc = normalizeRefCode(state.cloud?.teamCode || "");
             const base = (window.location.protocol === "file:") ? "partner.html" : (window.location.origin + window.location.pathname.replace(/[^/]*$/, "") + "partner.html");
             const url = `${base}?t=${encodeURIComponent(tc)}&b=${encodeURIComponent(state.business?.name || "KoltukTr")}&ph=${encodeURIComponent(state.business?.phone || "")}`;
             const inp = document.getElementById("partnerPortalUrlInput");
@@ -7681,14 +7869,14 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
         }
         function buildStandaloneBookingHtmlString() {
             const cfg = {
-                businessName: state.business.name || "Son Sistem Koltuk",
-                businessPhone: state.business.phone || "0539 721 76 93",
+                businessName: state.business.name || "KoltukTr",
+                businessPhone: state.business.phone || "",
                 city: state.business.city || "Adana",
                 districts: getBusinessDistricts().map(d => d.name),
                 koltukServices: (state.koltukServices || []).map((s, i) => ({ id: s.id, name: s.name, price: getEffectiveServicePrice(s.price), qty: i === 0 ? 1 : 0 })),
                 haliServices: (state.haliServices || []).map(s => ({ id: s.id, name: s.name, price: getEffectiveServicePrice(s.price), qty: 0 }))
             };
-            const tmpl = "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"tr\"\u003e\n\u003chead\u003e\n    \u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\"\u003e\n    \u003cmeta name=\"theme-color\" content=\"#2563eb\"\u003e\n    \u003clink rel=\"icon\" type=\"image/png\" href=\"/favicon.png\"\u003e\n    \u003clink rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"\u003e\n    \u003clink rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"\u003e\n    \u003cmeta name=\"apple-mobile-web-app-capable\" content=\"yes\"\u003e\n    \u003cmeta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\"\u003e\n    \u003ctitle\u003e__BIZ_NAME__ — Online Fiyat Hesapla &amp; Randevu Al\u003c/title\u003e\n    \u003cscript src=\"https://cdn.tailwindcss.com\"\u003e\u003c/script\u003e\n    \u003clink rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\u003e\n    \u003cstyle\u003e\n        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }\n        html, body {\n            margin: 0;\n            padding: 0;\n            width: 100%;\n            overflow-x: hidden;\n            background-color: #090d16;\n            color: #f1f5f9;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n            overscroll-behavior-y: none;\n        }\n        .ios-notch-spacer {\n            width: 100%;\n            height: max(env(safe-area-inset-top, 20px), 20px);\n            display: block;\n            flex-shrink: 0;\n        }\n    \n        body.kobalt-pro { background-color: #f1f5f9 !important; color: #0f172a !important; }\n        body.kobalt-pro .bg-slate-950 { background-color: #f8fafc !important; border-color: #dbe4f0 !important; }\n        body.kobalt-pro .bg-slate-900,\n        body.kobalt-pro .bg-slate-900\\/40 { background-color: #ffffff !important; border-color: #dbe4f0 !important; }\n        body.kobalt-pro .bg-slate-800 { background-color: #e2e8f0 !important; color: #1e293b !important; }\n        body.kobalt-pro .bg-slate-800:hover { background-color: #cbd5e1 !important; }\n        body.kobalt-pro .border-slate-800,\n        body.kobalt-pro .border-slate-800\\/80,\n        body.kobalt-pro .border-slate-700 { border-color: #e2e8f0 !important; }\n        body.kobalt-pro .border-emerald-700\\/60,\n        body.kobalt-pro .border-teal-700\\/60,\n        body.kobalt-pro .border-amber-700\\/60 { border-color: #bfdbfe !important; }\n        body.kobalt-pro .bg-emerald-950,\n        body.kobalt-pro .bg-emerald-950\\/60,\n        body.kobalt-pro .bg-emerald-950\\/70,\n        body.kobalt-pro .bg-emerald-950\\/40,\n        body.kobalt-pro .bg-emerald-900 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1e40af !important; }\n        body.kobalt-pro .bg-teal-950 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1d4ed8 !important; }\n        body.kobalt-pro .bg-amber-950 { background-color: #fffbeb !important; border-color: #fde68a !important; color: #92400e !important; }\n        body.kobalt-pro .bg-rose-950 { background-color: #fff1f2 !important; border-color: #fecdd3 !important; color: #9f1239 !important; }\n        body.kobalt-pro .text-white { color: #0f172a !important; }\n        body.kobalt-pro .text-slate-300 { color: #334155 !important; }\n        body.kobalt-pro .text-slate-400,\n        body.kobalt-pro .text-slate-500 { color: #64748b !important; }\n        body.kobalt-pro .text-emerald-200,\n        body.kobalt-pro .text-emerald-300,\n        body.kobalt-pro .text-emerald-400 { color: #047857 !important; }\n        body.kobalt-pro .text-teal-300,\n        body.kobalt-pro .text-teal-400 { color: #1d4ed8 !important; }\n        body.kobalt-pro .text-amber-300 { color: #b45309 !important; }\n        body.kobalt-pro .text-rose-200 { color: #be123c !important; }\n        body.kobalt-pro .bg-emerald-600,\n        body.kobalt-pro .bg-teal-600 { background-color: #2563eb !important; color: #ffffff !important; }\n        body.kobalt-pro .bg-emerald-600:hover,\n        body.kobalt-pro .bg-teal-600:hover { background-color: #1d4ed8 !important; }\n        body.kobalt-pro .bg-emerald-600 *,\n        body.kobalt-pro .bg-teal-600 * { color: #ffffff !important; }\n        body.kobalt-pro input,\n        body.kobalt-pro select,\n        body.kobalt-pro textarea { background-color: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important; }\n        body.kobalt-pro input:focus,\n        body.kobalt-pro select:focus { border-color: #2563eb !important; outline: none !important; box-shadow: 0 0 0 2px rgba(37,99,235,0.15) !important; }\n\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody class=\"kobalt-pro min-h-screen p-4 pb-10\"\u003e\n    \u003cdiv class=\"ios-notch-spacer\"\u003e\u003c/div\u003e\n    \u003cdiv class=\"max-w-md mx-auto bg-slate-900 border border-emerald-700/60 rounded-3xl p-5 space-y-4 shadow-2xl\"\u003e\n        \u003cdiv class=\"flex items-center justify-between border-b border-slate-800 pb-3\"\u003e\n            \u003cdiv\u003e\n                \u003cspan class=\"text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-2 py-0.5 rounded-full font-extrabold\"\u003eONLINE RANDEVU &amp; FİYAT HESAPLA\u003c/span\u003e\n                \u003ch1 class=\"text-lg font-extrabold text-white mt-1\" id=\"obBizTitle\"\u003e__BIZ_NAME__\u003c/h1\u003e\n            \u003c/div\u003e\n            \u003ca id=\"obCallBtn\" href=\"tel:__BIZ_PHONE_RAW__\" class=\"text-xs bg-emerald-950 border border-emerald-700 text-emerald-300 px-3 py-2 rounded-xl font-bold flex items-center space-x-1\"\u003e\n                \u003ci class=\"fa-solid fa-phone\"\u003e\u003c/i\u003e\n                \u003cspan\u003eAra\u003c/span\u003e\n            \u003c/a\u003e\n        \u003c/div\u003e\n\n        \u003cp class=\"text-xs text-slate-300\"\u003eYıkatmak istediğiniz ürünleri seçerek tahmini tutarı anında hesaplayabilir ve WhatsApp üzerinden hızlıca randevu talebi oluşturabilirsiniz:\u003c/p\u003e\n\n        \u003cdiv class=\"grid grid-cols-2 gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800\"\u003e\n            \u003cbutton type=\"button\" onclick=\"setMode('koltuk')\" id=\"modeKoltuk\" class=\"py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow\"\u003e🛋️ Koltuk Yıkama\u003c/button\u003e\n            \u003cbutton type=\"button\" onclick=\"setMode('hali')\" id=\"modeHali\" class=\"py-2 text-xs font-extrabold rounded-lg text-slate-400\"\u003e🧶 Halı Yıkama\u003c/button\u003e\n        \u003c/div\u003e\n\n        \u003cdiv id=\"obProductsList\" class=\"space-y-2 max-h-64 overflow-y-auto pr-0.5\"\u003e\u003c/div\u003e\n\n        \u003cdiv class=\"bg-emerald-950/60 border border-emerald-700 rounded-2xl p-3 flex justify-between items-center\"\u003e\n            \u003cspan class=\"text-xs font-bold text-emerald-200\"\u003eTahmini Toplam Tutar:\u003c/span\u003e\n            \u003cspan id=\"obTotalPrice\" class=\"text-lg font-extrabold text-white\"\u003e0 ₺\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv class=\"grid grid-cols-2 gap-2 text-xs\"\u003e\n            \u003cinput type=\"text\" id=\"obCustName\" placeholder=\"Adınız Soyadınız *\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cinput type=\"tel\" id=\"obCustPhone\" placeholder=\"Telefonunuz *\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cinput type=\"date\" id=\"obDate\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cselect id=\"obTime\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n                \u003coption value=\"09:00\"\u003e09:00\u003c/option\u003e\n                \u003coption value=\"11:00\"\u003e11:00\u003c/option\u003e\n                \u003coption value=\"13:30\"\u003e13:30\u003c/option\u003e\n                \u003coption value=\"15:30\"\u003e15:30\u003c/option\u003e\n                \u003coption value=\"17:30\"\u003e17:30\u003c/option\u003e\n            \u003c/select\u003e\n        \u003c/div\u003e\n\n        \u003cselect id=\"obDistrict\" class=\"w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500\"\u003e\u003c/select\u003e\n\n        \u003cinput type=\"text\" id=\"obAddress\" placeholder=\"Mahalle, Apartman, Kat ve Daire Adresiniz...\" class=\"w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500\"\u003e\n\n        \u003cdiv id=\"obErrorBox\" class=\"hidden bg-rose-950 border border-rose-600 text-rose-200 rounded-xl p-2.5 text-xs font-bold\"\u003e\u003c/div\u003e\n\n        \u003cbutton type=\"button\" onclick=\"submitBooking()\" class=\"w-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-extrabold py-3.5 rounded-2xl shadow-lg text-sm transition\"\u003e\n            💬 Randevu Talebini WhatsApp ile Gönder\n        \u003c/button\u003e\n\n        \u003cp class=\"text-[10px] text-center text-slate-500\"\u003eFiyatlar seçiminize göre tahmini hesaplanır; randevu saati WhatsApp onayı ile kesinleşir.\u003c/p\u003e\n    \u003c/div\u003e\n\n    \u003cscript\u003e\n        const CONFIG = __CONFIG_JSON__;\n        let currentMode = \"koltuk\";\n\n        function escHtml(str) {\n            return String(str ?? \"\").replace(/[&\u003c\u003e\"']/g, m =\u003e ({ \"&\": \"&amp;\", \"\u003c\": \"&lt;\", \"\u003e\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\" }[m]));\n        }\n\n        function getTodayIso() {\n            const d = new Date();\n            return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);\n        }\n\n        function setMode(mode) {\n            currentMode = mode;\n            const isKoltuk = mode === \"koltuk\";\n            document.getElementById(\"modeKoltuk\").className = isKoltuk ? \"py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow\" : \"py-2 text-xs font-extrabold rounded-lg text-slate-400\";\n            document.getElementById(\"modeHali\").className = !isKoltuk ? \"py-2 text-xs font-extrabold rounded-lg bg-teal-600 text-white shadow\" : \"py-2 text-xs font-extrabold rounded-lg text-slate-400\";\n            renderProducts();\n        }\n\n        function renderProducts() {\n            const list = currentMode === \"koltuk\" ? CONFIG.koltukServices : CONFIG.haliServices;\n            const cont = document.getElementById(\"obProductsList\");\n            cont.innerHTML = \"\";\n            list.forEach(s =\u003e {\n                const row = document.createElement(\"div\");\n                row.className = \"flex justify-between items-center bg-slate-950 border border-slate-800/80 p-2.5 rounded-xl text-xs\";\n                row.innerHTML = `\n                    \u003cdiv class=\"min-w-0 pr-2\"\u003e\n                        \u003cdiv class=\"font-bold text-white truncate\"\u003e${escHtml(s.name)}\u003c/div\u003e\n                        \u003cdiv class=\"text-emerald-400 font-semibold\"\u003e${Number(s.price || 0).toLocaleString(\"tr-TR\")} ₺\u003c/div\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"flex items-center space-x-2 shrink-0\"\u003e\n                        \u003cbutton type=\"button\" data-id=\"${escHtml(s.id)}\" data-delta=\"-1\" class=\"ob-qty-btn w-7 h-7 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg\"\u003e-\u003c/button\u003e\n                        \u003cspan id=\"obqty_${escHtml(s.id)}\" class=\"font-extrabold text-white w-6 text-center\"\u003e${s.qty || 0}\u003c/span\u003e\n                        \u003cbutton type=\"button\" data-id=\"${escHtml(s.id)}\" data-delta=\"1\" class=\"ob-qty-btn w-7 h-7 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg\"\u003e+\u003c/button\u003e\n                    \u003c/div\u003e\n                `;\n                cont.appendChild(row);\n            });\n            cont.querySelectorAll(\".ob-qty-btn\").forEach(btn =\u003e {\n                btn.addEventListener(\"click\", () =\u003e changeQty(btn.getAttribute(\"data-id\"), Number(btn.getAttribute(\"data-delta\"))));\n            });\n            calcTotal();\n        }\n\n        function changeQty(id, delta) {\n            const list = currentMode === \"koltuk\" ? CONFIG.koltukServices : CONFIG.haliServices;\n            const item = list.find(x =\u003e x.id === id);\n            if (!item) return;\n            item.qty = Math.max(0, (item.qty || 0) + delta);\n            const el = document.getElementById(\"obqty_\" + id);\n            if (el) el.textContent = item.qty;\n            calcTotal();\n        }\n\n        function calcTotal() {\n            let total = 0;\n            [...CONFIG.koltukServices, ...CONFIG.haliServices].forEach(s =\u003e {\n                total += Number(s.price || 0) * Number(s.qty || 0);\n            });\n            document.getElementById(\"obTotalPrice\").textContent = `${total.toLocaleString(\"tr-TR\")} ₺`;\n            return total;\n        }\n\n        function showError(msg) {\n            const box = document.getElementById(\"obErrorBox\");\n            if (!msg) { box.classList.add(\"hidden\"); box.textContent = \"\"; return; }\n            box.textContent = msg;\n            box.classList.remove(\"hidden\");\n        }\n\n        function submitBooking() {\n            const name = document.getElementById(\"obCustName\").value.trim();\n            const phone = document.getElementById(\"obCustPhone\").value.trim();\n            const date = document.getElementById(\"obDate\").value || getTodayIso();\n            const time = document.getElementById(\"obTime\").value;\n            const district = document.getElementById(\"obDistrict\").value;\n            const addr = document.getElementById(\"obAddress\").value.trim();\n\n            const selectedItems = [...CONFIG.koltukServices, ...CONFIG.haliServices]\n                .filter(s =\u003e (s.qty || 0) \u003e 0)\n                .map(s =\u003e `${s.qty}x ${s.name}`);\n\n            if (!name) { showError(\"⚠️ Lütfen adınızı ve soyadınızı yazın.\"); return; }\n            if (!phone || phone.replace(/\\D/g, \"\").length \u003c 10) { showError(\"⚠️ Lütfen geçerli bir telefon numarası girin.\"); return; }\n            if (!selectedItems.length) { showError(\"⚠️ Lütfen en az bir ürün seçin.\"); return; }\n            showError(\"\");\n\n            const total = calcTotal();\n            let bizPhone = String(CONFIG.businessPhone || \"\").replace(/\\D/g, \"\");\n            if (bizPhone.startsWith(\"0\")) bizPhone = \"90\" + bizPhone.slice(1);\n            else if (bizPhone.length === 10) bizPhone = \"90\" + bizPhone;\n\n            const msg = `🌐 *Online Randevu Talebi (${CONFIG.businessName})*\\n👤 Müşteri: *${name}* (${phone})\\n📅 Tarih/Saat: *${date} - ${time}*\\n🧼 Seçilen Ürünler: ${selectedItems.join(\", \")}\\n💰 Tahmini Tutar: *${total.toLocaleString(\"tr-TR\")} ₺*\\n📍 İlçe/Adres: ${district}${addr ? \" — \" + addr : \"\"}`;\n            const url = bizPhone ? `https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`;\n            window.open(url, \"_blank\");\n        }\n\n        function populateDistricts() {\n            const sel = document.getElementById(\"obDistrict\");\n            if (!sel) return;\n            sel.innerHTML = \"\";\n            const city = CONFIG.city || \"Adana\";\n            const dists = (Array.isArray(CONFIG.districts) && CONFIG.districts.length) ? CONFIG.districts : [\"Merkez\"];\n            dists.forEach(d =\u003e {\n                const o = document.createElement(\"option\");\n                o.value = d;\n                o.textContent = `${city} — ${d}`;\n                sel.appendChild(o);\n            });\n        }\n\n        window.addEventListener(\"DOMContentLoaded\", () =\u003e {\n            const today = getTodayIso();\n            const dateEl = document.getElementById(\"obDate\");\n            dateEl.value = today;\n            dateEl.min = today;\n            populateDistricts();\n            renderProducts();\n        });\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n";
+            const tmpl = "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"tr\"\u003e\n\u003chead\u003e\n    \u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\"\u003e\n    \u003cmeta name=\"theme-color\" content=\"#2563eb\"\u003e\n    \u003clink rel=\"icon\" type=\"image/png\" href=\"/favicon.png\"\u003e\n    \u003clink rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"\u003e\n    \u003clink rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"\u003e\n    \u003cmeta name=\"apple-mobile-web-app-capable\" content=\"yes\"\u003e\n    \u003cmeta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\"\u003e\n    \u003ctitle\u003e__BIZ_NAME__ — Online Fiyat Hesapla &amp; Randevu Al\u003c/title\u003e\n    \u003cscript src=\"https://cdn.tailwindcss.com\"\u003e\u003c/script\u003e\n    \u003clink rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\u003e\n    \u003cstyle\u003e\n        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }\n        html, body {\n            margin: 0;\n            padding: 0;\n            width: 100%;\n            overflow-x: hidden;\n            background-color: #090d16;\n            color: #f1f5f9;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n            overscroll-behavior-y: none;\n        }\n        .ios-notch-spacer {\n            width: 100%;\n            height: max(env(safe-area-inset-top, 20px), 20px);\n            display: block;\n            flex-shrink: 0;\n        }\n    \n        body.kobalt-pro { background-color: #f1f5f9 !important; color: #0f172a !important; }\n        body.kobalt-pro .bg-slate-950 { background-color: #f8fafc !important; border-color: #dbe4f0 !important; }\n        body.kobalt-pro .bg-slate-900,\n        body.kobalt-pro .bg-slate-900\\/40 { background-color: #ffffff !important; border-color: #dbe4f0 !important; }\n        body.kobalt-pro .bg-slate-800 { background-color: #e2e8f0 !important; color: #1e293b !important; }\n        body.kobalt-pro .bg-slate-800:hover { background-color: #cbd5e1 !important; }\n        body.kobalt-pro .border-slate-800,\n        body.kobalt-pro .border-slate-800\\/80,\n        body.kobalt-pro .border-slate-700 { border-color: #e2e8f0 !important; }\n        body.kobalt-pro .border-emerald-700\\/60,\n        body.kobalt-pro .border-teal-700\\/60,\n        body.kobalt-pro .border-amber-700\\/60 { border-color: #bfdbfe !important; }\n        body.kobalt-pro .bg-emerald-950,\n        body.kobalt-pro .bg-emerald-950\\/60,\n        body.kobalt-pro .bg-emerald-950\\/70,\n        body.kobalt-pro .bg-emerald-950\\/40,\n        body.kobalt-pro .bg-emerald-900 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1e40af !important; }\n        body.kobalt-pro .bg-teal-950 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1d4ed8 !important; }\n        body.kobalt-pro .bg-amber-950 { background-color: #fffbeb !important; border-color: #fde68a !important; color: #92400e !important; }\n        body.kobalt-pro .bg-rose-950 { background-color: #fff1f2 !important; border-color: #fecdd3 !important; color: #9f1239 !important; }\n        body.kobalt-pro .text-white { color: #0f172a !important; }\n        body.kobalt-pro .text-slate-300 { color: #334155 !important; }\n        body.kobalt-pro .text-slate-400,\n        body.kobalt-pro .text-slate-500 { color: #64748b !important; }\n        body.kobalt-pro .text-emerald-200,\n        body.kobalt-pro .text-emerald-300,\n        body.kobalt-pro .text-emerald-400 { color: #047857 !important; }\n        body.kobalt-pro .text-teal-300,\n        body.kobalt-pro .text-teal-400 { color: #1d4ed8 !important; }\n        body.kobalt-pro .text-amber-300 { color: #b45309 !important; }\n        body.kobalt-pro .text-rose-200 { color: #be123c !important; }\n        body.kobalt-pro .bg-emerald-600,\n        body.kobalt-pro .bg-teal-600 { background-color: #2563eb !important; color: #ffffff !important; }\n        body.kobalt-pro .bg-emerald-600:hover,\n        body.kobalt-pro .bg-teal-600:hover { background-color: #1d4ed8 !important; }\n        body.kobalt-pro .bg-emerald-600 *,\n        body.kobalt-pro .bg-teal-600 * { color: #ffffff !important; }\n        body.kobalt-pro input,\n        body.kobalt-pro select,\n        body.kobalt-pro textarea { background-color: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important; }\n        body.kobalt-pro input:focus,\n        body.kobalt-pro select:focus { border-color: #2563eb !important; outline: none !important; box-shadow: 0 0 0 2px rgba(37,99,235,0.15) !important; }\n\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody class=\"kobalt-pro min-h-screen p-4 pb-10\"\u003e\n    \u003cdiv class=\"ios-notch-spacer\"\u003e\u003c/div\u003e\n    \u003cdiv class=\"max-w-md mx-auto bg-slate-900 border border-emerald-700/60 rounded-3xl p-5 space-y-4 shadow-2xl\"\u003e\n        \u003cdiv class=\"flex items-center justify-between border-b border-slate-800 pb-3\"\u003e\n            \u003cdiv\u003e\n                \u003cspan class=\"text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-2 py-0.5 rounded-full font-extrabold\"\u003eONLINE RANDEVU &amp; FİYAT HESAPLA\u003c/span\u003e\n                \u003ch1 class=\"text-lg font-extrabold text-white mt-1\" id=\"obBizTitle\"\u003e__BIZ_NAME__\u003c/h1\u003e\n            \u003c/div\u003e\n            \u003ca id=\"obCallBtn\" href=\"tel:__BIZ_PHONE_RAW__\" class=\"text-xs bg-emerald-950 border border-emerald-700 text-emerald-300 px-3 py-2 rounded-xl font-bold flex items-center space-x-1\"\u003e\n                \u003ci class=\"fa-solid fa-phone\"\u003e\u003c/i\u003e\n                \u003cspan\u003eAra\u003c/span\u003e\n            \u003c/a\u003e\n        \u003c/div\u003e\n\n        \u003cp class=\"text-xs text-slate-300\"\u003eYıkatmak istediğiniz ürünleri seçerek tahmini tutarı anında hesaplayabilir ve WhatsApp üzerinden hızlıca randevu talebi oluşturabilirsiniz:\u003c/p\u003e\n\n        \u003cdiv class=\"grid grid-cols-2 gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800\"\u003e\n            \u003cbutton type=\"button\" onclick=\"setMode('koltuk')\" id=\"modeKoltuk\" class=\"py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow\"\u003e🛋️ Koltuk Yıkama\u003c/button\u003e\n            \u003cbutton type=\"button\" onclick=\"setMode('hali')\" id=\"modeHali\" class=\"py-2 text-xs font-extrabold rounded-lg text-slate-400\"\u003e🧶 Halı Yıkama\u003c/button\u003e\n        \u003c/div\u003e\n\n        \u003cdiv id=\"obProductsList\" class=\"space-y-2 max-h-64 overflow-y-auto pr-0.5\"\u003e\u003c/div\u003e\n\n        \u003cdiv class=\"bg-emerald-950/60 border border-emerald-700 rounded-2xl p-3 flex justify-between items-center\"\u003e\n            \u003cspan class=\"text-xs font-bold text-emerald-200\"\u003eTahmini Toplam Tutar:\u003c/span\u003e\n            \u003cspan id=\"obTotalPrice\" class=\"text-lg font-extrabold text-white\"\u003e0 ₺\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv class=\"grid grid-cols-2 gap-2 text-xs\"\u003e\n            \u003cinput type=\"text\" id=\"obCustName\" placeholder=\"Adınız Soyadınız *\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cinput type=\"tel\" id=\"obCustPhone\" placeholder=\"Telefonunuz *\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cinput type=\"date\" id=\"obDate\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n            \u003cselect id=\"obTime\" class=\"bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500\"\u003e\n                \u003coption value=\"09:00\"\u003e09:00\u003c/option\u003e\n                \u003coption value=\"11:00\"\u003e11:00\u003c/option\u003e\n                \u003coption value=\"13:30\"\u003e13:30\u003c/option\u003e\n                \u003coption value=\"15:30\"\u003e15:30\u003c/option\u003e\n                \u003coption value=\"17:30\"\u003e17:30\u003c/option\u003e\n            \u003c/select\u003e\n        \u003c/div\u003e\n\n        \u003cselect id=\"obDistrict\" class=\"w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500\"\u003e\u003c/select\u003e\n\n        \u003cinput type=\"text\" id=\"obAddress\" placeholder=\"Mahalle, Apartman, Kat ve Daire Adresiniz...\" class=\"w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500\"\u003e\n\n        \u003cdiv id=\"obErrorBox\" class=\"hidden bg-rose-950 border border-rose-600 text-rose-200 rounded-xl p-2.5 text-xs font-bold\"\u003e\u003c/div\u003e\n\n        \u003cbutton type=\"button\" onclick=\"submitBooking()\" class=\"w-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-extrabold py-3.5 rounded-2xl shadow-lg text-sm transition\"\u003e\n            💬 Randevu Talebini WhatsApp ile Gönder\n        \u003c/button\u003e\n\n        \u003cp class=\"text-[10px] text-center text-slate-500\"\u003eFiyatlar seçiminize göre tahmini hesaplanır; randevu saati WhatsApp onayı ile kesinleşir.\u003c/p\u003e\n    \u003c/div\u003e\n\n    \u003cscript\u003e\n        const CONFIG = __CONFIG_JSON__;\n        let currentMode = \"koltuk\";\n\n        function escHtml(str) {\n            return String(str ?? \"\").replace(/[&\u003c\u003e\"']/g, m =\u003e ({ \"&\": \"&amp;\", \"\u003c\": \"&lt;\", \"\u003e\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\" }[m]));\n        }\n\n        function getTodayIso() {\n            const d = new Date();\n            return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);\n        }\n\n        function setMode(mode) {\n            currentMode = mode;\n            const isKoltuk = mode === \"koltuk\";\n            document.getElementById(\"modeKoltuk\").className = isKoltuk ? \"py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow\" : \"py-2 text-xs font-extrabold rounded-lg text-slate-400\";\n            document.getElementById(\"modeHali\").className = !isKoltuk ? \"py-2 text-xs font-extrabold rounded-lg bg-teal-600 text-white shadow\" : \"py-2 text-xs font-extrabold rounded-lg text-slate-400\";\n            renderProducts();\n        }\n\n        function renderProducts() {\n            const list = currentMode === \"koltuk\" ? CONFIG.koltukServices : CONFIG.haliServices;\n            const cont = document.getElementById(\"obProductsList\");\n            cont.innerHTML = \"\";\n            list.forEach(s =\u003e {\n                const row = document.createElement(\"div\");\n                row.className = \"flex justify-between items-center bg-slate-950 border border-slate-800/80 p-2.5 rounded-xl text-xs\";\n                row.innerHTML = `\n                    \u003cdiv class=\"min-w-0 pr-2\"\u003e\n                        \u003cdiv class=\"font-bold text-white truncate\"\u003e${escHtml(s.name)}\u003c/div\u003e\n                        \u003cdiv class=\"text-emerald-400 font-semibold\"\u003e${Number(s.price || 0).toLocaleString(\"tr-TR\")} ₺\u003c/div\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"flex items-center space-x-2 shrink-0\"\u003e\n                        \u003cbutton type=\"button\" data-id=\"${escHtml(s.id)}\" data-delta=\"-1\" class=\"ob-qty-btn w-7 h-7 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg\"\u003e-\u003c/button\u003e\n                        \u003cspan id=\"obqty_${escHtml(s.id)}\" class=\"font-extrabold text-white w-6 text-center\"\u003e${s.qty || 0}\u003c/span\u003e\n                        \u003cbutton type=\"button\" data-id=\"${escHtml(s.id)}\" data-delta=\"1\" class=\"ob-qty-btn w-7 h-7 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg\"\u003e+\u003c/button\u003e\n                    \u003c/div\u003e\n                `;\n                cont.appendChild(row);\n            });\n            cont.querySelectorAll(\".ob-qty-btn\").forEach(btn =\u003e {\n                btn.addEventListener(\"click\", () =\u003e changeQty(btn.getAttribute(\"data-id\"), Number(btn.getAttribute(\"data-delta\"))));\n            });\n            calcTotal();\n        }\n\n        function changeQty(id, delta) {\n            const list = currentMode === \"koltuk\" ? CONFIG.koltukServices : CONFIG.haliServices;\n            const item = list.find(x =\u003e x.id === id);\n            if (!item) return;\n            item.qty = Math.max(0, (item.qty || 0) + delta);\n            const el = document.getElementById(\"obqty_\" + id);\n            if (el) el.textContent = item.qty;\n            calcTotal();\n        }\n\n        function calcTotal() {\n            let total = 0;\n            [...CONFIG.koltukServices, ...CONFIG.haliServices].forEach(s =\u003e {\n                total += Number(s.price || 0) * Number(s.qty || 0);\n            });\n            document.getElementById(\"obTotalPrice\").textContent = `${total.toLocaleString(\"tr-TR\")} ₺`;\n            return total;\n        }\n\n        function showError(msg) {\n            const box = document.getElementById(\"obErrorBox\");\n            if (!msg) { box.classList.add(\"hidden\"); box.textContent = \"\"; return; }\n            box.textContent = msg;\n            box.classList.remove(\"hidden\");\n        }\n\n        function submitBooking() {\n            const name = document.getElementById(\"obCustName\").value.trim();\n            const phone = document.getElementById(\"obCustPhone\").value.trim();\n            const date = document.getElementById(\"obDate\").value || getTodayIso();\n            const time = document.getElementById(\"obTime\").value;\n            const district = document.getElementById(\"obDistrict\").value;\n            const addr = document.getElementById(\"obAddress\").value.trim();\n\n            const selectedItems = [...CONFIG.koltukServices, ...CONFIG.haliServices]\n                .filter(s =\u003e (s.qty || 0) \u003e 0)\n                .map(s =\u003e `${s.qty}x ${s.name}`);\n\n            if (!name) { showError(\"⚠️ Lütfen adınızı ve soyadınızı yazın.\"); return; }\n            if (!phone || phone.replace(/\\D/g, \"\").length \u003c 10) { showError(\"⚠️ Lütfen geçerli bir telefon numarası girin.\"); return; }\n            if (!selectedItems.length) { showError(\"⚠️ Lütfen en az bir ürün seçin.\"); return; }\n            showError(\"\");\n\n            const total = calcTotal();\n            let bizPhone = String(CONFIG.businessPhone || \"\").replace(/\\D/g, \"\");\n            if (bizPhone.startsWith(\"0\")) bizPhone = \"90\" + bizPhone.slice(1);\n            else if (bizPhone.length === 10) bizPhone = \"90\" + bizPhone;\n\n            const msg = `🌐 *Online Randevu Talebi (${CONFIG.businessName})*\\n👤 Müşteri: *${name}* (${phone})\\n📅 Tarih/Saat: *${date} - ${time}*\\n🧼 Seçilen Ürünler: ${selectedItems.join(\", \")}\\n💰 Tahmini Tutar: *${total.toLocaleString(\"tr-TR\")} ₺*\\n📍 İlçe/Adres: ${district}${addr ? \" — \" + addr : \"\"}`;\n            const url = bizPhone ? `https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`;\n            window.open(url, \"_blank\");\n        }\n\n        function populateDistricts() {\n            const sel = document.getElementById(\"obDistrict\");\n            if (!sel) return;\n            sel.innerHTML = \"\";\n            const city = CONFIG.city || \"Adana\";\n            const dists = (Array.isArray(CONFIG.districts) && CONFIG.districts.length) ? CONFIG.districts : [\"Merkez\"];\n            dists.forEach(d =\u003e {\n                const o = document.createElement(\"option\");\n                o.value = d;\n                o.textContent = `${city} — ${d}`;\n                sel.appendChild(o);\n            });\n        }\n\n        window.addEventListener(\"DOMContentLoaded\", () =\u003e {\n            const callBtn = document.getElementById(\"obCallBtn\");\n            const rawTel = String(CONFIG.businessPhone || \"\").replace(/[^0-9+]/g, \"\");\n            if (callBtn) { if (rawTel) { callBtn.href = \"tel:\" + rawTel; callBtn.classList.remove(\"hidden\"); } else { callBtn.classList.add(\"hidden\"); } }\n            const today = getTodayIso();\n            const dateEl = document.getElementById(\"obDate\");\n            dateEl.value = today;\n            dateEl.min = today;\n            populateDistricts();\n            renderProducts();\n        });\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n";
             const safeBizName = escHtml(cfg.businessName);
             const safeBizPhone = String(cfg.businessPhone || "").replace(/[^0-9+]/g, "");
             const safeCfgJson = JSON.stringify(cfg).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
@@ -7972,7 +8160,7 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
             if (!c) return;
             const ctx = c.getContext("2d");
             const all = [...state.haliAppointments, ...state.appointments];
-            const a = all.find(x => x.id === apptId) || { id: "QR101", receiptNo: "#H-101", customerName: "Örnek Müşteri", phone: "0539 721 76 93", district: "Çukurova", servicesText: "Halı / Koltuk", price: 1500, date: getTodayIso() };
+            const a = all.find(x => x.id === apptId) || { id: "QR101", receiptNo: "#H-101", customerName: "Örnek Müşteri", phone: "05XX XXX XX XX", district: "Merkez", servicesText: "Halı / Koltuk", price: 1500, date: getTodayIso() };
             const w = c.width, h = c.height;
             ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, w, h);
             ctx.strokeStyle = "#000000"; ctx.lineWidth = 4; ctx.strokeRect(6, 6, w - 12, h - 12);
@@ -8206,7 +8394,7 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
             renderLiveTrackingCard();
         }
         function getPublicTrackUrl(apptId) {
-            const tc = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const tc = normalizeRefCode(state.cloud?.teamCode || "");
             const base = (window.location.protocol === "file:") ? "takip.html" : (window.location.origin + window.location.pathname.replace(/[^/]*$/, "") + "takip.html");
             return `${base}?t=${encodeURIComponent(tc)}&f=${encodeURIComponent(apptId || "")}`;
         }
@@ -8332,7 +8520,8 @@ Mevcut kayıtlar bu yedekteki durumla değiştirilecek ve ekibin tüm cihazları
         }
         function closeCloudModal() { document.getElementById("cloudModal").classList.add("hidden"); }
         function sendWhatsAppTeamInviteLink() {
-            const rawCode = normalizeRefCode(state.cloud?.teamCode || "SONSISTEM01");
+            const rawCode = normalizeRefCode(state.cloud?.teamCode || "");
+            if (!rawCode) { showToast("⚠️ Ekip kodu bulunamadı."); return; }
             const code = encodeURIComponent(rawCode);
             const base = (window.location.protocol === "file:") ? "index.html" : (window.location.origin + window.location.pathname);
             const url = `${base}?ref=${code}`;

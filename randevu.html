@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Son Sistem Koltuk — Online Fiyat Hesapla &amp; Randevu Al</title>
+    <title>KoltukTr — Online Fiyat Hesapla &amp; Randevu Al</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -82,9 +82,9 @@
         <div class="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
                 <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-2 py-0.5 rounded-full font-extrabold">ONLINE RANDEVU &amp; FİYAT HESAPLA</span>
-                <h1 class="text-lg font-extrabold text-white mt-1" id="obBizTitle">Son Sistem Koltuk</h1>
+                <h1 class="text-lg font-extrabold text-white mt-1" id="obBizTitle">Online Randevu</h1>
             </div>
-            <a id="obCallBtn" href="tel:05397217693" class="text-xs bg-emerald-950 border border-emerald-700 text-emerald-300 px-3 py-2 rounded-xl font-bold flex items-center space-x-1">
+            <a id="obCallBtn" href="#" class="hidden text-xs bg-emerald-950 border border-emerald-700 text-emerald-300 px-3 py-2 rounded-xl font-bold flex items-center space-x-1">
                 <i class="fa-solid fa-phone"></i>
                 <span>Ara</span>
             </a>
@@ -131,7 +131,7 @@
     </div>
 
     <script>
-        const CONFIG = {"businessName": "Son Sistem Koltuk", "businessPhone": "0539 721 76 93", "city": "Adana", "districts": ["Çukurova", "Seyhan", "Yüreğir", "Sarıçam", "Karaisalı", "Ceyhan"], "koltukServices": [{"id": "ks1", "name": "Koltuk Takımı (3+3+1+1)", "price": 1500, "qty": 1}, {"id": "ks2", "name": "L Koltuk / Köşe Takımı", "price": 1300, "qty": 0}, {"id": "ks3", "name": "Çift Kişilik Yatak", "price": 1000, "qty": 0}, {"id": "ks4", "name": "Tek Kişilik Yatak", "price": 700, "qty": 0}, {"id": "ks5", "name": "Sandalye (Adet)", "price": 100, "qty": 0}, {"id": "ks6", "name": "Berjer / Tekli", "price": 350, "qty": 0}, {"id": "ks7", "name": "Araç Koltuğu Takımı", "price": 1500, "qty": 0}], "haliServices": [{"id": "hs1", "name": "Makine Halısı (m²)", "price": 70, "qty": 0}, {"id": "hs2", "name": "Shaggy / Kalın Halı (m²)", "price": 90, "qty": 0}, {"id": "hs3", "name": "Bambu / İpek Halı (m²)", "price": 150, "qty": 0}, {"id": "hs4", "name": "Yün / El Dokuma (m²)", "price": 160, "qty": 0}]};
+        const CONFIG = {"businessName": "KoltukTr", "businessPhone": "", "city": "Adana", "districts": ["Merkez"], "koltukServices": [{"id": "ks1", "name": "Koltuk Takımı (3+3+1+1)", "price": 1500, "qty": 1}, {"id": "ks2", "name": "L Koltuk / Köşe Takımı", "price": 1300, "qty": 0}, {"id": "ks3", "name": "Çift Kişilik Yatak", "price": 1000, "qty": 0}, {"id": "ks4", "name": "Tek Kişilik Yatak", "price": 700, "qty": 0}, {"id": "ks5", "name": "Sandalye (Adet)", "price": 100, "qty": 0}, {"id": "ks6", "name": "Berjer / Tekli", "price": 350, "qty": 0}, {"id": "ks7", "name": "Araç Koltuğu Takımı", "price": 1500, "qty": 0}], "haliServices": [{"id": "hs1", "name": "Makine Halısı (m²)", "price": 70, "qty": 0}, {"id": "hs2", "name": "Shaggy / Kalın Halı (m²)", "price": 90, "qty": 0}, {"id": "hs3", "name": "Bambu / İpek Halı (m²)", "price": 150, "qty": 0}, {"id": "hs4", "name": "Yün / El Dokuma (m²)", "price": 160, "qty": 0}]};
         let currentMode = "koltuk";
 
         function escHtml(str) {
@@ -245,6 +245,12 @@
         }
 
         window.addEventListener("DOMContentLoaded", () => {
+            const callBtn = document.getElementById("obCallBtn");
+            const rawTel = String(CONFIG.businessPhone || "").replace(/[^0-9+]/g, "");
+            if (callBtn) {
+                if (rawTel) { callBtn.href = "tel:" + rawTel; callBtn.classList.remove("hidden"); }
+                else { callBtn.classList.add("hidden"); }
+            }
             const today = getTodayIso();
             const dateEl = document.getElementById("obDate");
             dateEl.value = today;

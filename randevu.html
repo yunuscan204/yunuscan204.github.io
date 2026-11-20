@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Son Sistem Koltuk — Online Fiyat Hesapla &amp; Randevu Al</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #090d16;
+            color: #f1f5f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overscroll-behavior-y: none;
+        }
+        .ios-notch-spacer {
+            width: 100%;
+            height: max(env(safe-area-inset-top, 20px), 20px);
+            display: block;
+            flex-shrink: 0;
+        }
+    
+        body.kobalt-pro { background-color: #f1f5f9 !important; color: #0f172a !important; }
+        body.kobalt-pro .bg-slate-950 { background-color: #f8fafc !important; border-color: #dbe4f0 !important; }
+        body.kobalt-pro .bg-slate-900,
+        body.kobalt-pro .bg-slate-900\/40 { background-color: #ffffff !important; border-color: #dbe4f0 !important; }
+        body.kobalt-pro .bg-slate-800 { background-color: #e2e8f0 !important; color: #1e293b !important; }
+        body.kobalt-pro .bg-slate-800:hover { background-color: #cbd5e1 !important; }
+        body.kobalt-pro .border-slate-800,
+        body.kobalt-pro .border-slate-800\/80,
+        body.kobalt-pro .border-slate-700 { border-color: #e2e8f0 !important; }
+        body.kobalt-pro .border-emerald-700\/60,
+        body.kobalt-pro .border-teal-700\/60,
+        body.kobalt-pro .border-amber-700\/60 { border-color: #bfdbfe !important; }
+        body.kobalt-pro .bg-emerald-950,
+        body.kobalt-pro .bg-emerald-950\/60,
+        body.kobalt-pro .bg-emerald-950\/70,
+        body.kobalt-pro .bg-emerald-950\/40,
+        body.kobalt-pro .bg-emerald-900 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1e40af !important; }
+        body.kobalt-pro .bg-teal-950 { background-color: #eff6ff !important; border-color: #bfdbfe !important; color: #1d4ed8 !important; }
+        body.kobalt-pro .bg-amber-950 { background-color: #fffbeb !important; border-color: #fde68a !important; color: #92400e !important; }
+        body.kobalt-pro .bg-rose-950 { background-color: #fff1f2 !important; border-color: #fecdd3 !important; color: #9f1239 !important; }
+        body.kobalt-pro .text-white { color: #0f172a !important; }
+        body.kobalt-pro .text-slate-300 { color: #334155 !important; }
+        body.kobalt-pro .text-slate-400,
+        body.kobalt-pro .text-slate-500 { color: #64748b !important; }
+        body.kobalt-pro .text-emerald-200,
+        body.kobalt-pro .text-emerald-300,
+        body.kobalt-pro .text-emerald-400 { color: #047857 !important; }
+        body.kobalt-pro .text-teal-300,
+        body.kobalt-pro .text-teal-400 { color: #1d4ed8 !important; }
+        body.kobalt-pro .text-amber-300 { color: #b45309 !important; }
+        body.kobalt-pro .text-rose-200 { color: #be123c !important; }
+        body.kobalt-pro .bg-emerald-600,
+        body.kobalt-pro .bg-teal-600 { background-color: #2563eb !important; color: #ffffff !important; }
+        body.kobalt-pro .bg-emerald-600:hover,
+        body.kobalt-pro .bg-teal-600:hover { background-color: #1d4ed8 !important; }
+        body.kobalt-pro .bg-emerald-600 *,
+        body.kobalt-pro .bg-teal-600 * { color: #ffffff !important; }
+        body.kobalt-pro input,
+        body.kobalt-pro select,
+        body.kobalt-pro textarea { background-color: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important; }
+        body.kobalt-pro input:focus,
+        body.kobalt-pro select:focus { border-color: #2563eb !important; outline: none !important; box-shadow: 0 0 0 2px rgba(37,99,235,0.15) !important; }
+
+    </style>
+</head>
+<body class="kobalt-pro min-h-screen p-4 pb-10">
+    <div class="ios-notch-spacer"></div>
+    <div class="max-w-md mx-auto bg-slate-900 border border-emerald-700/60 rounded-3xl p-5 space-y-4 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+                <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-2 py-0.5 rounded-full font-extrabold">ONLINE RANDEVU &amp; FİYAT HESAPLA</span>
+                <h1 class="text-lg font-extrabold text-white mt-1" id="obBizTitle">Son Sistem Koltuk</h1>
+            </div>
+            <a id="obCallBtn" href="tel:05397217693" class="text-xs bg-emerald-950 border border-emerald-700 text-emerald-300 px-3 py-2 rounded-xl font-bold flex items-center space-x-1">
+                <i class="fa-solid fa-phone"></i>
+                <span>Ara</span>
+            </a>
+        </div>
+
+        <p class="text-xs text-slate-300">Yıkatmak istediğiniz ürünleri seçerek tahmini tutarı anında hesaplayabilir ve WhatsApp üzerinden hızlıca randevu talebi oluşturabilirsiniz:</p>
+
+        <div class="grid grid-cols-2 gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
+            <button type="button" onclick="setMode('koltuk')" id="modeKoltuk" class="py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow">🛋️ Koltuk Yıkama</button>
+            <button type="button" onclick="setMode('hali')" id="modeHali" class="py-2 text-xs font-extrabold rounded-lg text-slate-400">🧶 Halı Yıkama</button>
+        </div>
+
+        <div id="obProductsList" class="space-y-2 max-h-64 overflow-y-auto pr-0.5"></div>
+
+        <div class="bg-emerald-950/60 border border-emerald-700 rounded-2xl p-3 flex justify-between items-center">
+            <span class="text-xs font-bold text-emerald-200">Tahmini Toplam Tutar:</span>
+            <span id="obTotalPrice" class="text-lg font-extrabold text-white">0 ₺</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs">
+            <input type="text" id="obCustName" placeholder="Adınız Soyadınız *" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500">
+            <input type="tel" id="obCustPhone" placeholder="Telefonunuz *" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500">
+            <input type="date" id="obDate" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500">
+            <select id="obTime" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-emerald-500">
+                <option value="09:00">09:00</option>
+                <option value="11:00">11:00</option>
+                <option value="13:30">13:30</option>
+                <option value="15:30">15:30</option>
+                <option value="17:30">17:30</option>
+            </select>
+        </div>
+
+        <select id="obDistrict" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+
+        <input type="text" id="obAddress" placeholder="Mahalle, Apartman, Kat ve Daire Adresiniz..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+
+        <div id="obErrorBox" class="hidden bg-rose-950 border border-rose-600 text-rose-200 rounded-xl p-2.5 text-xs font-bold"></div>
+
+        <button type="button" onclick="submitBooking()" class="w-full bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-extrabold py-3.5 rounded-2xl shadow-lg text-sm transition">
+            💬 Randevu Talebini WhatsApp ile Gönder
+        </button>
+
+        <p class="text-[10px] text-center text-slate-500">Fiyatlar seçiminize göre tahmini hesaplanır; randevu saati WhatsApp onayı ile kesinleşir.</p>
+    </div>
+
+    <script>
+        const CONFIG = {"businessName": "Son Sistem Koltuk", "businessPhone": "0539 721 76 93", "city": "Adana", "districts": ["Çukurova", "Seyhan", "Yüreğir", "Sarıçam", "Karaisalı", "Ceyhan"], "koltukServices": [{"id": "ks1", "name": "Koltuk Takımı (3+3+1+1)", "price": 1500, "qty": 1}, {"id": "ks2", "name": "L Koltuk / Köşe Takımı", "price": 1300, "qty": 0}, {"id": "ks3", "name": "Çift Kişilik Yatak", "price": 1000, "qty": 0}, {"id": "ks4", "name": "Tek Kişilik Yatak", "price": 700, "qty": 0}, {"id": "ks5", "name": "Sandalye (Adet)", "price": 100, "qty": 0}, {"id": "ks6", "name": "Berjer / Tekli", "price": 350, "qty": 0}, {"id": "ks7", "name": "Araç Koltuğu Takımı", "price": 1500, "qty": 0}], "haliServices": [{"id": "hs1", "name": "Makine Halısı (m²)", "price": 70, "qty": 0}, {"id": "hs2", "name": "Shaggy / Kalın Halı (m²)", "price": 90, "qty": 0}, {"id": "hs3", "name": "Bambu / İpek Halı (m²)", "price": 150, "qty": 0}, {"id": "hs4", "name": "Yün / El Dokuma (m²)", "price": 160, "qty": 0}]};
+        let currentMode = "koltuk";
+
+        function escHtml(str) {
+            return String(str ?? "").replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+        }
+
+        function getTodayIso() {
+            const d = new Date();
+            return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const isKoltuk = mode === "koltuk";
+            document.getElementById("modeKoltuk").className = isKoltuk ? "py-2 text-xs font-extrabold rounded-lg bg-emerald-600 text-white shadow" : "py-2 text-xs font-extrabold rounded-lg text-slate-400";
+            document.getElementById("modeHali").className = !isKoltuk ? "py-2 text-xs font-extrabold rounded-lg bg-teal-600 text-white shadow" : "py-2 text-xs font-extrabold rounded-lg text-slate-400";
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const list = currentMode === "koltuk" ? CONFIG.koltukServices : CONFIG.haliServices;
+            const cont = document.getElementById("obProductsList");
+            cont.innerHTML = "";
+            list.forEach(s => {
+                const row = document.createElement("div");
+                row.className = "flex justify-between items-center bg-slate-950 border border-slate-800/80 p-2.5 rounded-xl text-xs";
+                row.innerHTML = `
+                    <div class="min-w-0 pr-2">
+                        <div class="font-bold text-white truncate">${escHtml(s.name)}</div>
+                        <div class="text-emerald-400 font-semibold">${Number(s.price || 0).toLocaleString("tr-TR")} ₺</div>
+                    </div>
+                    <div class="flex items-center space-x-2 shrink-0">
+                        <button type="button" data-id="${escHtml(s.id)}" data-delta="-1" class="ob-qty-btn w-7 h-7 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg">-</button>
+                        <span id="obqty_${escHtml(s.id)}" class="font-extrabold text-white w-6 text-center">${s.qty || 0}</span>
+                        <button type="button" data-id="${escHtml(s.id)}" data-delta="1" class="ob-qty-btn w-7 h-7 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg">+</button>
+                    </div>
+                `;
+                cont.appendChild(row);
+            });
+            cont.querySelectorAll(".ob-qty-btn").forEach(btn => {
+                btn.addEventListener("click", () => changeQty(btn.getAttribute("data-id"), Number(btn.getAttribute("data-delta"))));
+            });
+            calcTotal();
+        }
+
+        function changeQty(id, delta) {
+            const list = currentMode === "koltuk" ? CONFIG.koltukServices : CONFIG.haliServices;
+            const item = list.find(x => x.id === id);
+            if (!item) return;
+            item.qty = Math.max(0, (item.qty || 0) + delta);
+            const el = document.getElementById("obqty_" + id);
+            if (el) el.textContent = item.qty;
+            calcTotal();
+        }
+
+        function calcTotal() {
+            let total = 0;
+            [...CONFIG.koltukServices, ...CONFIG.haliServices].forEach(s => {
+                total += Number(s.price || 0) * Number(s.qty || 0);
+            });
+            document.getElementById("obTotalPrice").textContent = `${total.toLocaleString("tr-TR")} ₺`;
+            return total;
+        }
+
+        function showError(msg) {
+            const box = document.getElementById("obErrorBox");
+            if (!msg) { box.classList.add("hidden"); box.textContent = ""; return; }
+            box.textContent = msg;
+            box.classList.remove("hidden");
+        }
+
+        function submitBooking() {
+            const name = document.getElementById("obCustName").value.trim();
+            const phone = document.getElementById("obCustPhone").value.trim();
+            const date = document.getElementById("obDate").value || getTodayIso();
+            const time = document.getElementById("obTime").value;
+            const district = document.getElementById("obDistrict").value;
+            const addr = document.getElementById("obAddress").value.trim();
+
+            const selectedItems = [...CONFIG.koltukServices, ...CONFIG.haliServices]
+                .filter(s => (s.qty || 0) > 0)
+                .map(s => `${s.qty}x ${s.name}`);
+
+            if (!name) { showError("⚠️ Lütfen adınızı ve soyadınızı yazın."); return; }
+            if (!phone || phone.replace(/\D/g, "").length < 10) { showError("⚠️ Lütfen geçerli bir telefon numarası girin."); return; }
+            if (!selectedItems.length) { showError("⚠️ Lütfen en az bir ürün seçin."); return; }
+            showError("");
+
+            const total = calcTotal();
+            let bizPhone = String(CONFIG.businessPhone || "").replace(/\D/g, "");
+            if (bizPhone.startsWith("0")) bizPhone = "90" + bizPhone.slice(1);
+            else if (bizPhone.length === 10) bizPhone = "90" + bizPhone;
+
+            const msg = `🌐 *Online Randevu Talebi (${CONFIG.businessName})*\n👤 Müşteri: *${name}* (${phone})\n📅 Tarih/Saat: *${date} - ${time}*\n🧼 Seçilen Ürünler: ${selectedItems.join(", ")}\n💰 Tahmini Tutar: *${total.toLocaleString("tr-TR")} ₺*\n📍 İlçe/Adres: ${district}${addr ? " — " + addr : ""}`;
+            const url = bizPhone ? `https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            window.open(url, "_blank");
+        }
+
+        function populateDistricts() {
+            const sel = document.getElementById("obDistrict");
+            if (!sel) return;
+            sel.innerHTML = "";
+            const city = CONFIG.city || "Adana";
+            const dists = (Array.isArray(CONFIG.districts) && CONFIG.districts.length) ? CONFIG.districts : ["Merkez"];
+            dists.forEach(d => {
+                const o = document.createElement("option");
+                o.value = d;
+                o.textContent = `${city} — ${d}`;
+                sel.appendChild(o);
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const today = getTodayIso();
+            const dateEl = document.getElementById("obDate");
+            dateEl.value = today;
+            dateEl.min = today;
+            populateDistricts();
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

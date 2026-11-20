@@ -1,0 +1,37 @@
+{
+  "name": "KoltukTr v3.4.4 Kobalt Pro - 81 İl Koltuk & Halı Saha Yönetim Sistemi",
+  "short_name": "KoltukTr",
+  "description": "Kobalt Pro arayüzlü koltuk ve halı yıkama saha yönetimi, Firebase Auth güvenliği, otomatik bulut yedekleme, canlı mesafe ölçer ve çevrimdışı kuyruk.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#2563eb",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/koltuktr-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/koltuktr-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/koltuktr-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

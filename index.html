@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/koltuktr-icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <title>KoltukTr v3.4.5 Ultimate - 81 İl Koltuk &amp; Halı Saha Yönetim Sistemi</title>
+    <title>KoltukTr v3.5.0 Ultimate - 81 İl Koltuk &amp; Halı Saha Yönetim Sistemi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -398,7 +398,7 @@
                     <div>
                         <div class="flex items-center space-x-1.5">
                             <h1 class="text-base font-extrabold text-white">KoltukTr</h1>
-                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 px-1.5 py-0.5 rounded">v3.4.5 Ultimate</span>
+                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700 px-1.5 py-0.5 rounded">v3.5.0 Ultimate</span>
                         </div>
                         <p class="text-[11px] text-slate-400">E-posta ile kaydol, referans koduyla ekibini bağla</p>
                     </div>
@@ -549,7 +549,7 @@
                     <div class="min-w-0">
                         <div class="flex items-center space-x-1">
                             <span class="font-extrabold text-sm tracking-tight text-white truncate" id="headerBusinessTitle">KoltukTr</span>
-                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/60 px-1.5 py-0.5 rounded">v3.4.5</span>
+                            <span class="text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/60 px-1.5 py-0.5 rounded">v3.5.0</span>
                         </div>
                         <button onclick="openCloudModal()" class="flex items-center space-x-1 text-[10px] text-emerald-400 truncate mt-0.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" id="cloudDot"></span>
@@ -770,6 +770,10 @@
 
         <!-- SEKME 3: ÖZET, PARÇALI ÖDEME, BİRİM MALİYET & GİDER -->
         <section id="tab-ozet" class="hidden space-y-3">
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="openReportModal('today')" class="bg-emerald-950/60 border border-emerald-700/60 text-emerald-200 text-xs font-extrabold p-3 rounded-2xl text-left">📊 Gün Sonu Kasası<div class="text-[10px] font-normal text-emerald-300/80">Bugünün özeti, paylaş</div></button>
+                <button type="button" onclick="openReportModal('month')" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs font-extrabold p-3 rounded-2xl text-left">🗓️ Dönem Raporu<div class="text-[10px] font-normal text-slate-400">Hafta / ay / özel tarih</div></button>
+            </div>
             <!-- İki İş Alanı Bağımsız Kasa Özeti -->
             <div class="bg-gradient-to-r from-slate-900 via-emerald-950/40 to-slate-900 border border-emerald-800/60 rounded-2xl p-3.5">
                 <div class="flex items-center justify-between mb-2">
@@ -872,11 +876,13 @@
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5">
                 <h3 class="text-xs font-extrabold text-amber-400 uppercase tracking-wider mb-2.5"><i class="fa-solid fa-hand-holding-dollar mr-1.5"></i>Bekleyen Tahsilatlar / Parçalı Bakiye Listesi</h3>
                 <div id="unpaidList" class="space-y-2"></div>
+                <button type="button" onclick="openBulkMsgModal('debt')" class="mt-2 w-full bg-amber-500 text-slate-950 font-extrabold py-2 rounded-xl text-[11px]">📣 Borçlulara Toplu Hatırlat</button>
             </div>
         </section>
 
         <!-- SEKME 4: MÜŞTERİLER, KURUMSAL ABONELİK & KAPICI REFERANS -->
         <section id="tab-musteriler" class="hidden space-y-3">
+            <button type="button" onclick="openBulkMsgModal('all')" class="w-full bg-amber-950/60 border border-amber-700/60 text-amber-200 text-xs font-extrabold p-3 rounded-2xl text-left">📣 Toplu Mesaj / Kampanya / Borç Hatırlatma<div class="text-[10px] font-normal text-amber-300/80">Müşteri grubunu seç, mesajı düzenle, tek tek WhatsApp'tan gönder</div></button>
             <div class="grid grid-cols-2 gap-2">
                 <button onclick="openCorporateContractsModal()" class="bg-indigo-950/70 border border-indigo-700/60 text-indigo-200 text-xs font-extrabold p-3 rounded-2xl text-left">
                     📅 Kurumsal Bakım Sözleşmeleri (<span id="corpCountBadge">0</span>)
@@ -1336,6 +1342,7 @@
                     <select id="inpPaymentMethod" class="bg-slate-900 border border-slate-800 rounded-xl px-2 py-1.5 text-xs text-white">
                         <option value="Nakit">💵 Nakit</option>
                         <option value="IBAN">🏦 Havale / IBAN</option>
+                        <option value="Kart">💳 Kredi Kartı</option>
                     </select>
                     <select id="inpPaidStatus" onchange="onPaidStatusChange()" class="bg-slate-900 border border-slate-800 rounded-xl px-2 py-1.5 text-xs text-white">
                         <option value="false">⏳ Bekliyor / Kısmi</option>
@@ -1520,6 +1527,14 @@
                 <button onclick="closeHubAndOpen('openJobShareModal')" class="bg-slate-950 border border-teal-800/70 p-2.5 rounded-2xl text-left col-span-2">
                     <div class="font-extrabold text-teal-300">🤝 26. Güvenilir Usta İş Paslaşma Havuzu</div>
                     <div class="text-[10px] text-slate-400">Yoğun günde fazla işi meslektaşa devret, paslaşma komisyonunu takip et</div>
+                </button>
+                <button onclick="closeHubAndOpen('openReportModal')" class="bg-slate-950 border border-emerald-800/70 p-2.5 rounded-2xl text-left">
+                    <div class="font-extrabold text-emerald-300">📊 27. Dönem Raporu</div>
+                    <div class="text-[10px] text-slate-400">Gün sonu kasası, hizmet/ilçe/usta kırılımı</div>
+                </button>
+                <button onclick="closeHubAndOpen('openBulkMsgModal')" class="bg-slate-950 border border-amber-800/70 p-2.5 rounded-2xl text-left">
+                    <div class="font-extrabold text-amber-300">📣 28. Toplu Mesaj</div>
+                    <div class="text-[10px] text-slate-400">Borç hatırlatma, kampanya, tekrar yıkama</div>
                 </button>
             </div>
         </div>
@@ -2371,7 +2386,7 @@
     <div id="toastBox" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-800 border border-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-2xl"></div>
 
     <script>
-        const APP_VERSION = "v3.4.5";
+        const APP_VERSION = "v3.5.0";
         const DEFAULT_FIREBASE_URL = "https://koltuktr-7f600-default-rtdb.europe-west1.firebasedatabase.app";
         const FIREBASE_CONFIG = {
             apiKey: "AIzaSyBm5EhPDPhr__P3Z6kL2m5MHelRSkuGAHQ",
@@ -6197,7 +6212,7 @@
             const activeList = isHali ? state.haliAppointments : state.appointments;
             const activeExps = isHali ? (state.haliExpenses || []) : state.expenses;
 
-            let collected = 0, pending = 0, cash = 0, iban = 0, tips = 0, retouchCount = 0, activeJobCount = 0;
+            let collected = 0, pending = 0, cash = 0, iban = 0, card = 0, tips = 0, retouchCount = 0, activeJobCount = 0;
             let timedMins = 0, timedNet = 0, timedCount = 0;
             const unitChem = Number(state.business.unitChemCost || 75);
             const kmRate = Number(state.business.kmFuelCost || 4.5);
@@ -6212,7 +6227,7 @@
                 collected += pd;
                 pending += rem;
                 tips += Number(a.tipAmount || 0);
-                if (a.paymentMethod === "IBAN") iban += pd; else cash += pd;
+                if (a.paymentMethod === "IBAN") iban += pd; else if (a.paymentMethod === "Kart") card += pd; else cash += pd;
                 if (Number(a.durationMinutes || 0) > 0) {
                     const km = Number(a.measuredKm || getDistrictMetrics(a.district).km);
                     const cost = unitChem + (km * 2 * kmRate);
@@ -6242,7 +6257,7 @@
             document.getElementById("statBrutInfo").textContent = `Tahsil Edilen: ${collected.toLocaleString("tr-TR")} ₺`;
             document.getElementById("statPendingAmount").textContent = `${pending.toLocaleString("tr-TR")} ₺`;
             document.getElementById("statCashTotal").textContent = `💵 Nakit: ${cash.toLocaleString("tr-TR")} ₺`;
-            document.getElementById("statIbanTotal").textContent = `🏦 IBAN: ${iban.toLocaleString("tr-TR")} ₺`;
+            document.getElementById("statIbanTotal").textContent = `🏦 IBAN: ${iban.toLocaleString("tr-TR")} ₺` + (card > 0 ? ` • 💳 Kart: ${card.toLocaleString("tr-TR")} ₺` : "");
             document.getElementById("statTipsTotal").textContent = `🎁 Bahşiş: ${tips.toLocaleString("tr-TR")} ₺`;
             document.getElementById("statExpenseTotal").textContent = `${expTotal.toLocaleString("tr-TR")} ₺`;
             document.getElementById("statUnitCostInfo").textContent = `Birim İlaç: ~${totalUnitChem} ₺ | Rötuş: ${retouchCount}`;
@@ -9346,6 +9361,459 @@ ${url}`;
                 }
             }, 30000);
         });
+    </script>
+    <!-- ===================== v3.5.0 EKLERİ: DÖNEM RAPORU + TOPLU MESAJ ===================== -->
+    <div id="reportModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-3xl p-4 space-y-3 max-h-[90vh] overflow-y-auto text-xs">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <h3 class="text-sm font-extrabold text-emerald-400">📊 Dönem Raporu &amp; Gün Sonu Kasası</h3>
+                <button type="button" data-rp="close" class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center">✕</button>
+            </div>
+            <div class="grid grid-cols-3 gap-1.5" id="rpScope"></div>
+            <div class="grid grid-cols-4 gap-1.5" id="rpPeriods"></div>
+            <div class="grid grid-cols-2 gap-1.5">
+                <label class="text-[10px] text-slate-400">Başlangıç<input type="date" id="rpFrom" class="mt-0.5 w-full bg-slate-950 border border-slate-800 rounded-xl px-2 py-1.5 text-xs text-white"></label>
+                <label class="text-[10px] text-slate-400">Bitiş<input type="date" id="rpTo" class="mt-0.5 w-full bg-slate-950 border border-slate-800 rounded-xl px-2 py-1.5 text-xs text-white"></label>
+            </div>
+            <div id="rpBody" class="space-y-2"></div>
+            <div class="grid grid-cols-3 gap-1.5">
+                <button type="button" data-rp="wa" class="bg-emerald-600 text-white font-extrabold py-2 rounded-xl text-[11px]">💬 WhatsApp</button>
+                <button type="button" data-rp="copy" class="bg-slate-800 text-slate-200 font-bold py-2 rounded-xl text-[11px]">📋 Kopyala</button>
+                <button type="button" data-rp="csv" class="bg-slate-800 text-slate-200 font-bold py-2 rounded-xl text-[11px]">⬇️ CSV</button>
+            </div>
+            <div class="text-[10px] text-slate-500 leading-snug">Rapor, randevunun <strong>hizmet tarihine</strong> göre hazırlanır. İptal edilenler ve rötuşlar ciroya dahil edilmez.</div>
+        </div>
+    </div>
+
+    <div id="bulkMsgModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-3xl p-4 space-y-3 max-h-[90vh] overflow-y-auto text-xs">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <h3 class="text-sm font-extrabold text-amber-400">📣 Toplu Mesaj &amp; Borç Hatırlatma</h3>
+                <button type="button" data-bm="close" class="w-7 h-7 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center">✕</button>
+            </div>
+            <div>
+                <div class="text-[10px] font-bold text-slate-400 mb-1">1) Kime gönderilecek?</div>
+                <div class="grid grid-cols-3 gap-1.5" id="bmTargets"></div>
+                <select id="bmDistrict" class="hidden mt-1.5 w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2 text-xs text-white"></select>
+            </div>
+            <div>
+                <div class="text-[10px] font-bold text-slate-400 mb-1">2) Mesaj</div>
+                <select id="bmTpl" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2 text-xs text-white mb-1.5"></select>
+                <textarea id="bmText" rows="6" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2 text-xs text-white leading-snug"></textarea>
+                <div class="text-[10px] text-slate-500 mt-1">Değişkenler: <code>{ad}</code> <code>{borc}</code> <code>{tarih}</code> <code>{gun}</code> <code>{isletme}</code> <code>{tel}</code> <code>{iban}</code></div>
+            </div>
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5">
+                <div class="text-[10px] font-bold text-slate-400 mb-1">Önizleme</div>
+                <div id="bmPreview" class="text-[11px] text-slate-200 whitespace-pre-wrap leading-snug"></div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between mb-1.5">
+                    <div class="text-[10px] font-bold text-slate-400">3) Gönder <span id="bmCount" class="text-slate-500"></span></div>
+                    <button type="button" data-bm="next" class="bg-emerald-600 text-white font-extrabold px-3 py-1.5 rounded-xl text-[11px]">📤 Sıradakine Gönder</button>
+                </div>
+                <div id="bmList" class="space-y-1.5"></div>
+            </div>
+            <div class="text-[10px] text-slate-500 leading-snug">WhatsApp her müşteri için ayrı açılır, göndermek için WhatsApp'ta gönder tuşuna basmanız gerekir. Kara listedeki ve telefonu olmayan müşteriler listeye alınmaz.</div>
+        </div>
+    </div>
+
+    <script>
+/* ===================== v3.5.0 EKLERİ: DÖNEM RAPORU + TOPLU MESAJ =====================
+   Mevcut veriye dokunmaz, yalnızca okur. Ana betikten sonra çalışır. */
+(function () {
+    "use strict";
+
+    var $ = function (id) { return document.getElementById(id); };
+    var esc = function (s) { return escHtml(s); };
+    var TL = function (n) { return (Math.round(Number(n || 0) * 100) / 100).toLocaleString("tr-TR") + " ₺"; };
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    var isoD = function (d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
+    var trDate = function (iso) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ""); return m ? m[3] + "." + m[2] + "." + m[1] : (iso || "-"); };
+    var baseDate = function () { return new Date(getTodayIso() + "T12:00:00"); };
+    var shift = function (d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; };
+    var hasState = function () { return typeof state !== "undefined" && state && typeof state === "object"; };
+    var openM = function (id) { var m = $(id); if (m) m.classList.remove("hidden"); };
+    var closeM = function (id) { var m = $(id); if (m) m.classList.add("hidden"); };
+    var CHIP_ON = "bg-emerald-600 text-white font-extrabold py-1.5 rounded-xl text-[11px]";
+    var CHIP_OFF = "bg-slate-800 text-slate-300 font-bold py-1.5 rounded-xl text-[11px]";
+
+    function copyText(txt) {
+        var fallback = function () {
+            var ta = document.createElement("textarea");
+            ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand("copy"); showToast("📋 Kopyalandı"); } catch (e) { showToast("⚠️ Kopyalanamadı"); }
+            ta.remove();
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(function () { showToast("📋 Kopyalandı"); }, fallback);
+        } else { fallback(); }
+    }
+
+    // ------------------------------------------------------------------ RAPOR
+    var PERIODS = [["today", "Bugün"], ["yesterday", "Dün"], ["week", "Bu Hafta"], ["month", "Bu Ay"], ["lastmonth", "Geçen Ay"], ["last30", "Son 30 Gün"], ["all", "Tümü"], ["custom", "Özel"]];
+    var SCOPES = [["koltuk", "🛋️ Koltuk"], ["hali", "🧶 Halı"], ["all", "Tümü"]];
+    var rp = { scope: "koltuk", period: "today", from: "", to: "", last: null };
+
+    function rangeOf(key) {
+        var t = baseDate(), y = t.getFullYear(), m = t.getMonth();
+        if (key === "today") return [isoD(t), isoD(t)];
+        if (key === "yesterday") { var yd = shift(t, -1); return [isoD(yd), isoD(yd)]; }
+        if (key === "week") { var dow = (t.getDay() + 6) % 7; var s = shift(t, -dow); return [isoD(s), isoD(shift(s, 6))]; }
+        if (key === "month") return [isoD(new Date(y, m, 1, 12)), isoD(new Date(y, m + 1, 0, 12))];
+        if (key === "lastmonth") return [isoD(new Date(y, m - 1, 1, 12)), isoD(new Date(y, m, 0, 12))];
+        if (key === "last30") return [isoD(shift(t, -29)), isoD(t)];
+        if (key === "all") return ["0000-01-01", "9999-12-31"];
+        return [rp.from || isoD(t), rp.to || isoD(t)];
+    }
+
+    function rpLists(scope) {
+        var out = [];
+        if (scope === "koltuk" || scope === "all") out.push({ kind: "Koltuk", appts: state.appointments || [], exps: state.expenses || [], services: state.koltukServices || [] });
+        if (scope === "hali" || scope === "all") out.push({ kind: "Halı", appts: state.haliAppointments || [], exps: state.haliExpenses || [], services: state.haliServices || [] });
+        return out;
+    }
+
+    function bump(map, key, add) {
+        var k = key || "Belirtilmemiş";
+        if (!map[k]) map[k] = { jobs: 0, revenue: 0, qty: 0 };
+        map[k].jobs += add.jobs || 0; map[k].revenue += add.revenue || 0; map[k].qty += add.qty || 0;
+    }
+
+    function rpCompute(scope, from, to) {
+        var r = { jobs: 0, cancelled: 0, retouch: 0, revenue: 0, collected: 0, remaining: 0, tips: 0, cash: 0, iban: 0, card: 0, expenses: 0,
+            byService: {}, byDistrict: {}, byUsta: {}, byCustomer: {}, byDay: {}, byExp: {}, rows: [] };
+        rpLists(scope).forEach(function (L) {
+            var names = {};
+            L.services.forEach(function (s) { names[s.id] = s.name; });
+            L.appts.forEach(function (a) {
+                var d = String(a.date || "").slice(0, 10);
+                if (!d || d < from || d > to) return;
+                if (a.status === "CANCELLED") { r.cancelled++; return; }
+                if (a.warrantyRetouch) { r.retouch++; return; }
+                var p = Number(a.price || 0);
+                var pd = a.paid ? p : Number(a.paidAmount || 0);
+                var rem = Math.max(0, p - pd);
+                r.jobs++; r.revenue += p; r.collected += pd; r.remaining += rem; r.tips += Number(a.tipAmount || 0);
+                if (a.paymentMethod === "IBAN") r.iban += pd; else if (a.paymentMethod === "Kart") r.card += pd; else r.cash += pd;
+                var sq = a.serviceQtys && typeof a.serviceQtys === "object" ? Object.keys(a.serviceQtys) : [];
+                if (sq.length) {
+                    sq.forEach(function (id) { bump(r.byService, names[id] || id, { jobs: 1, qty: Number(a.serviceQtys[id]) || 0 }); });
+                } else {
+                    bump(r.byService, "Özel / diğer", { jobs: 1, qty: 1 });
+                }
+                bump(r.byDistrict, a.district, { jobs: 1, revenue: p });
+                bump(r.byUsta, a.usta, { jobs: 1, revenue: p });
+                var ck = normPhoneKey(a.phone) || String(a.customerName || "").trim().toLowerCase() || "?";
+                if (!r.byCustomer[ck]) r.byCustomer[ck] = { name: a.customerName || "Müşteri", jobs: 0, revenue: 0 };
+                r.byCustomer[ck].jobs++; r.byCustomer[ck].revenue += p;
+                if (!r.byDay[d]) r.byDay[d] = { jobs: 0, revenue: 0, collected: 0 };
+                r.byDay[d].jobs++; r.byDay[d].revenue += p; r.byDay[d].collected += pd;
+                r.rows.push([L.kind, a.receiptNo || "", d, a.time || "", a.customerName || "", a.phone || "", a.district || "", a.usta || "", a.servicesText || "", p, pd, rem, a.paymentMethod || "Nakit", Number(a.tipAmount || 0), a.status || "PENDING"]);
+            });
+            L.exps.forEach(function (e) {
+                var d = String(e.date || "").slice(0, 10);
+                if (!d || d < from || d > to) return;
+                var amt = Number(e.amount || 0);
+                r.expenses += amt;
+                var cat = e.category || "Diğer";
+                r.byExp[cat] = (r.byExp[cat] || 0) + amt;
+            });
+        });
+        r.net = r.collected - r.expenses;
+        r.avg = r.jobs ? r.revenue / r.jobs : 0;
+        return r;
+    }
+
+    function topEntries(map, sortKey, n) {
+        return Object.keys(map).map(function (k) { return [k, map[k]]; })
+            .sort(function (a, b) { return (b[1][sortKey] || 0) - (a[1][sortKey] || 0); }).slice(0, n);
+    }
+
+    function periodLabel() {
+        var f = PERIODS.filter(function (p) { return p[0] === rp.period; })[0];
+        return f ? f[1] : "";
+    }
+
+    function rpRender() {
+        if (!hasState()) return;
+        var rg = rangeOf(rp.period);
+        if (rp.period !== "custom") { $("rpFrom").value = rg[0] === "0000-01-01" ? "" : rg[0]; $("rpTo").value = rg[1] === "9999-12-31" ? "" : rg[1]; }
+        else { rg = [rp.from || isoD(baseDate()), rp.to || isoD(baseDate())]; if (rg[0] > rg[1]) rg = [rg[1], rg[0]]; }
+        $("rpScope").innerHTML = SCOPES.map(function (s) { return '<button type="button" data-rp="scope" data-v="' + s[0] + '" class="' + (rp.scope === s[0] ? CHIP_ON : CHIP_OFF) + '">' + s[1] + '</button>'; }).join("");
+        $("rpPeriods").innerHTML = PERIODS.map(function (p) { return '<button type="button" data-rp="period" data-v="' + p[0] + '" class="' + (rp.period === p[0] ? CHIP_ON : CHIP_OFF) + '">' + p[1] + '</button>'; }).join("");
+
+        var r = rpCompute(rp.scope, rg[0], rg[1]);
+        rp.last = { r: r, from: rg[0], to: rg[1] };
+        var card = function (label, val, cls) { return '<div class="bg-slate-950 border border-slate-800 rounded-xl p-2"><div class="text-[10px] text-slate-400">' + label + '</div><div class="font-extrabold ' + (cls || "text-white") + ' text-sm">' + val + '</div></div>'; };
+        var html = '<div class="grid grid-cols-2 gap-1.5">' +
+            card("🧾 İş sayısı", r.jobs + (r.cancelled ? ' <span class="text-[10px] text-rose-400 font-bold">(' + r.cancelled + ' iptal)</span>' : "")) +
+            card("💰 Ciro", TL(r.revenue)) +
+            card("✅ Tahsil edilen", TL(r.collected), "text-emerald-400") +
+            card("⏳ Kalan alacak", TL(r.remaining), "text-amber-300") +
+            card("📉 Gider", TL(r.expenses), "text-rose-400") +
+            card("🟢 Net kasa", TL(r.net), r.net >= 0 ? "text-emerald-300" : "text-rose-400") +
+            '</div>';
+        html += '<div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 grid grid-cols-3 gap-1 text-center">' +
+            '<div><div class="text-[10px] text-slate-400">💵 Nakit</div><div class="font-bold text-white">' + TL(r.cash) + '</div></div>' +
+            '<div><div class="text-[10px] text-slate-400">🏦 IBAN</div><div class="font-bold text-white">' + TL(r.iban) + '</div></div>' +
+            '<div><div class="text-[10px] text-slate-400">💳 Kart</div><div class="font-bold text-white">' + TL(r.card) + '</div></div>' +
+            '</div>';
+        html += '<div class="flex justify-between text-[11px] text-slate-300 px-1"><span>Ort. sepet: <strong>' + TL(r.avg) + '</strong></span><span>🎁 Bahşiş: <strong>' + TL(r.tips) + '</strong></span>' + (r.retouch ? '<span>🔁 Rötuş: <strong>' + r.retouch + '</strong></span>' : "") + '</div>';
+
+        var table = function (title, rows, fmt) {
+            if (!rows.length) return "";
+            return '<div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5"><div class="text-[10px] font-extrabold text-slate-400 uppercase mb-1">' + title + '</div>' +
+                rows.map(function (e) { return '<div class="flex justify-between gap-2 py-0.5 text-[11px]"><span class="truncate text-slate-200">' + esc(e[0]) + '</span><span class="shrink-0 text-slate-300">' + fmt(e[1]) + '</span></div>'; }).join("") + '</div>';
+        };
+        html += table("Hizmetler", topEntries(r.byService, "qty", 8), function (v) { return "<strong>" + (Math.round(v.qty * 10) / 10) + "</strong> adet • " + v.jobs + " iş"; });
+        html += table("İlçe / bölge", topEntries(r.byDistrict, "revenue", 6), function (v) { return v.jobs + " iş • <strong>" + TL(v.revenue) + "</strong>"; });
+        var ustaRows = topEntries(r.byUsta, "revenue", 6);
+        if (!(ustaRows.length === 1 && ustaRows[0][0] === "Belirtilmemiş")) html += table("Usta bazında", ustaRows, function (v) { return v.jobs + " iş • <strong>" + TL(v.revenue) + "</strong>"; });
+        html += table("En çok iş veren müşteriler", topEntries(r.byCustomer, "revenue", 5).map(function (e) { return [e[1].name, e[1]]; }), function (v) { return v.jobs + " iş • <strong>" + TL(v.revenue) + "</strong>"; });
+        var days = Object.keys(r.byDay).sort().reverse();
+        if (days.length > 1) html += table("Gün gün (en yeni 14 gün)", days.slice(0, 14).map(function (d) { return [trDate(d), r.byDay[d]]; }), function (v) { return v.jobs + " iş • <strong>" + TL(v.revenue) + "</strong>"; });
+        var expRows = Object.keys(r.byExp).map(function (k) { return [k, { v: r.byExp[k] }]; }).sort(function (a, b) { return b[1].v - a[1].v; });
+        html += table("Giderler", expRows, function (v) { return "<strong>-" + TL(v.v) + "</strong>"; });
+        if (!r.jobs && !r.expenses) html += '<div class="text-center text-slate-500 py-3">Bu dönemde kayıt yok.</div>';
+        $("rpBody").innerHTML = html;
+    }
+
+    function rpScopeLabel() { return rp.scope === "koltuk" ? "Koltuk" : (rp.scope === "hali" ? "Halı" : "Koltuk + Halı"); }
+
+    function rpText() {
+        if (!rp.last) return "";
+        var r = rp.last.r, biz = (state.business && state.business.name) || "KoltukTr";
+        var range = rp.last.from === rp.last.to ? trDate(rp.last.from) : (rp.last.from.indexOf("0000") === 0 ? "Tüm zamanlar" : trDate(rp.last.from) + " – " + trDate(rp.last.to));
+        var L = [];
+        L.push("📊 *" + biz + " — " + periodLabel() + " Raporu*");
+        L.push("📅 " + range + " • " + rpScopeLabel());
+        L.push("━━━━━━━━━━━━");
+        L.push("🧾 İş: " + r.jobs + (r.cancelled ? " (iptal: " + r.cancelled + ")" : ""));
+        L.push("💰 Ciro: " + TL(r.revenue));
+        L.push("✅ Tahsil: " + TL(r.collected));
+        L.push("   💵 Nakit: " + TL(r.cash) + " • 🏦 IBAN: " + TL(r.iban) + (r.card ? " • 💳 Kart: " + TL(r.card) : ""));
+        L.push("⏳ Kalan alacak: " + TL(r.remaining));
+        if (r.tips) L.push("🎁 Bahşiş: " + TL(r.tips));
+        L.push("📉 Gider: " + TL(r.expenses));
+        L.push("🟢 *Net kasa: " + TL(r.net) + "*");
+        var ts = topEntries(r.byService, "qty", 3);
+        if (ts.length) L.push("🔝 En çok: " + ts.map(function (e) { return e[0] + " (" + (Math.round(e[1].qty * 10) / 10) + ")"; }).join(", "));
+        return L.join("\n");
+    }
+
+    function csvCell(v) {
+        var s = String(v == null ? "" : v);
+        if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+        return '"' + s.replace(/"/g, '""') + '"';
+    }
+
+    function rpCsv() {
+        if (!rp.last) return;
+        var head = ["Is_Kolu", "Fis_No", "Tarih", "Saat", "Musteri", "Telefon", "Ilce", "Usta", "Hizmet", "Toplam", "Alinan", "Kalan", "Odeme", "Bahsis", "Durum"];
+        var rows = [head].concat(rp.last.r.rows);
+        var csv = "﻿" + rows.map(function (r) { return r.map(csvCell).join(";"); }).join("\n");
+        var url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8;" }));
+        var a = document.createElement("a");
+        a.href = url; a.download = "KoltukTr_Rapor_" + rp.period + "_" + getTodayIso() + ".csv";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    }
+
+    window.openReportModal = function (period) {
+        if (!hasState()) return;
+        rp.scope = state.workMode === "hali" ? "hali" : "koltuk";
+        rp.period = period || "today";
+        openM("reportModal");
+        rpRender();
+    };
+
+    // ------------------------------------------------------------------ TOPLU MESAJ
+    var BM_TARGETS = [["debt", "💸 Borcu olanlar"], ["d150", "⏰ 6 ay+ gelmeyen"], ["d90", "📆 3 ay+ gelmeyen"], ["repeat", "⭐ 3+ iş yaptıran"], ["all", "👥 Tüm müşteriler"], ["district", "📍 İlçeye göre"]];
+    var BM_TPL = {
+        debt: { label: "Borç hatırlatma", text: "Merhaba {ad} 🙏\n{isletme} olarak {tarih} tarihli hizmetimizden kalan {borc} bakiyeniz görünüyor. Müsait olduğunuzda ödemenizi rica ederiz.\n{iban}Teşekkür ederiz." },
+        revisit: { label: "Tekrar yıkama hatırlatma", text: "Merhaba {ad} 👋\nSon yıkamanızın üzerinden {gun} gün geçti. Koltuk/halılarınızın bakım zamanı gelmiş olabilir. Size uygun bir gün için randevu oluşturabiliriz.\n{isletme} {tel}" },
+        campaign: { label: "Kampanya / duyuru", text: "Merhaba {ad} 👋\n{isletme} olarak bu ay randevu alan müşterilerimize özel %__ indirim yapıyoruz.\nDetay ve randevu için bu mesaja yanıt verebilirsiniz." },
+        season: { label: "Sezon / yoğunluk duyurusu", text: "Merhaba {ad} 👋\nTemizlik sezonu yoğunluğu başladı. Yerinizi erkenden ayırtmak için bu mesaja yanıt verebilirsiniz.\n{isletme} {tel}" },
+        holiday: { label: "Bayram / özel gün tebriği", text: "Merhaba {ad},\n{isletme} ailesi olarak bayramınızı kutlar, sağlık ve huzur dolu günler dileriz. 🌙" },
+        thanks: { label: "Teşekkür & yorum rica", text: "Merhaba {ad} 🙏\nBizi tercih ettiğiniz için teşekkür ederiz. Hizmetimizden memnun kaldıysanız bir yorum yazarsanız çok seviniriz.\n{isletme}" },
+        custom: { label: "Serbest mesaj", text: "Merhaba {ad},\n" }
+    };
+    var BM_DEFAULT_TPL = { debt: "debt", d150: "revisit", d90: "revisit", repeat: "campaign", all: "campaign", district: "campaign" };
+    var SENT_KEY = "koltuktr_bulk_sent_v1";
+    var bm = { target: "debt", tpl: "debt", district: "", edited: false, list: [] };
+
+    function sentSet() {
+        try {
+            var arr = JSON.parse(localStorage.getItem(SENT_KEY) || "[]");
+            if (!Array.isArray(arr)) arr = [];
+            var min = isoD(shift(baseDate(), -14));
+            return arr.filter(function (k) { return typeof k === "string" && k.slice(0, 10) >= min; });
+        } catch (e) { return []; }
+    }
+    function sentKey(id) { return getTodayIso() + "|" + bm.tpl + "|" + id; }
+    function isSent(id) { return sentSet().indexOf(sentKey(id)) !== -1; }
+    function markSent(id) {
+        try { var s = sentSet(); if (s.indexOf(sentKey(id)) === -1) s.push(sentKey(id)); localStorage.setItem(SENT_KEY, JSON.stringify(s.slice(-2000))); } catch (e) { /* önemli değil */ }
+    }
+
+    function custFor(a) {
+        var cs = state.customers || [];
+        var k = normPhoneKey(a.phone);
+        if (k) return cs.filter(function (c) { return normPhoneKey(c.phone) === k; })[0] || null;
+        var n = String(a.customerName || "").trim().toLowerCase();
+        return cs.filter(function (c) { return !normPhoneKey(c.phone) && String(c.name || "").trim().toLowerCase() === n; })[0] || null;
+    }
+
+    function debtMap() {
+        var map = {};
+        getAllAppointments().forEach(function (a) {
+            if (a.paid || a.warrantyRetouch || a.status === "CANCELLED") return;
+            var rem = Math.max(0, Number(a.price || 0) - Number(a.paidAmount || 0));
+            if (rem <= 0) return;
+            var c = custFor(a); if (!c) return;
+            if (!map[c.id]) map[c.id] = { debt: 0, first: a.date || "" };
+            map[c.id].debt += rem;
+            if (a.date && (!map[c.id].first || a.date < map[c.id].first)) map[c.id].first = a.date;
+        });
+        return map;
+    }
+
+    function validPhone(p) { return String(p || "").replace(/\D/g, "").length >= 10; }
+
+    function bmRecipients() {
+        var today = getTodayIso();
+        var dm = debtMap();
+        var all = (state.customers || []).filter(function (c) { return !c.blacklisted; });
+        var picked;
+        if (bm.target === "debt") picked = all.filter(function (c) { return dm[c.id]; });
+        else if (bm.target === "d150") picked = all.filter(function (c) { return c.lastDate && daysBetweenIso(c.lastDate, today) >= 150; });
+        else if (bm.target === "d90") picked = all.filter(function (c) { return c.lastDate && daysBetweenIso(c.lastDate, today) >= 90; });
+        else if (bm.target === "repeat") picked = all.filter(function (c) { return Number(c.jobsCount || 0) >= 3; });
+        else if (bm.target === "district") picked = all.filter(function (c) { return bm.district && (c.district || "") === bm.district; });
+        else picked = all;
+        var noPhone = picked.filter(function (c) { return !validPhone(c.phone); }).length;
+        var list = picked.filter(function (c) { return validPhone(c.phone); }).map(function (c) {
+            var d = dm[c.id];
+            return { id: c.id, name: c.name || "Müşterimiz", phone: c.phone, district: c.district || "", debt: d ? d.debt : 0, first: d ? d.first : (c.lastDate || ""),
+                days: c.lastDate ? daysBetweenIso(c.lastDate, today) : 0, jobs: Number(c.jobsCount || 0) };
+        });
+        if (bm.target === "debt") list.sort(function (a, b) { return b.debt - a.debt; });
+        else if (bm.target === "d150" || bm.target === "d90") list.sort(function (a, b) { return b.days - a.days; });
+        else list.sort(function (a, b) { return a.name.localeCompare(b.name, "tr"); });
+        bm.noPhone = noPhone;
+        return list;
+    }
+
+    function firstName(n) {
+        var t = String(n || "").trim().split(/\s+/)[0] || "Müşterimiz";
+        return t.charAt(0).toLocaleUpperCase("tr") + t.slice(1).toLocaleLowerCase("tr");
+    }
+
+    function renderMsg(text, r) {
+        var biz = (state.business && state.business.name) || "KoltukTr";
+        var tel = (state.business && state.business.phone) || "";
+        var iban = (state.business && state.business.iban || "").trim();
+        var map = {
+            ad: firstName(r.name), borc: r.debt > 0 ? TL(r.debt) : "—", tarih: r.first ? trDate(r.first) : "—", gun: r.days > 0 ? String(r.days) : "—",
+            isletme: biz, tel: tel ? "📞 " + tel : "", iban: iban ? "🏦 IBAN: " + iban + "\n" : ""
+        };
+        return String(text).replace(/\{(ad|borc|tarih|gun|isletme|tel|iban)\}/g, function (_, k) { return map[k]; }).replace(/[ \t]+\n/g, "\n").trim();
+    }
+
+    function bmRender() {
+        if (!hasState()) return;
+        $("bmTargets").innerHTML = BM_TARGETS.map(function (t) { return '<button type="button" data-bm="target" data-v="' + t[0] + '" class="' + (bm.target === t[0] ? CHIP_ON : CHIP_OFF) + ' text-[10px]">' + t[1] + '</button>'; }).join("");
+        var sel = $("bmDistrict");
+        if (bm.target === "district") {
+            var ds = {}; (state.customers || []).forEach(function (c) { if (c.district) ds[c.district] = 1; });
+            var names = Object.keys(ds).sort(function (a, b) { return a.localeCompare(b, "tr"); });
+            if (!bm.district || !ds[bm.district]) bm.district = names[0] || "";
+            sel.innerHTML = names.map(function (d) { return '<option value="' + esc(d) + '"' + (d === bm.district ? " selected" : "") + ">" + esc(d) + "</option>"; }).join("");
+            sel.classList.remove("hidden");
+        } else { sel.classList.add("hidden"); }
+        $("bmTpl").innerHTML = Object.keys(BM_TPL).map(function (k) { return '<option value="' + k + '"' + (k === bm.tpl ? " selected" : "") + ">" + esc(BM_TPL[k].label) + "</option>"; }).join("");
+        bm.list = bmRecipients();
+        var txt = $("bmText").value;
+        var sample = bm.list[0] || { name: "Ayşe", debt: 1500, first: getTodayIso(), days: 180 };
+        $("bmPreview").textContent = renderMsg(txt, sample);
+        var sentN = bm.list.filter(function (r) { return isSent(r.id); }).length;
+        $("bmCount").textContent = "(" + bm.list.length + " kişi" + (sentN ? " • " + sentN + " gönderildi" : "") + (bm.noPhone ? " • telefonu olmayan " + bm.noPhone : "") + ")";
+        if (!bm.list.length) {
+            $("bmList").innerHTML = '<div class="text-center text-slate-500 py-3">Bu seçimde gönderilecek müşteri yok.</div>';
+            return;
+        }
+        $("bmList").innerHTML = bm.list.slice(0, 200).map(function (r) {
+            var sent = isSent(r.id);
+            var meta = bm.target === "debt" ? '<strong class="text-amber-300">' + TL(r.debt) + "</strong>" : (r.days > 0 ? r.days + " gün önce" : r.jobs + " iş");
+            return '<div class="flex items-center justify-between gap-2 bg-slate-950 border ' + (sent ? "border-emerald-800/60" : "border-slate-800") + ' rounded-xl px-2.5 py-1.5">' +
+                '<div class="min-w-0"><div class="font-bold text-white truncate">' + esc(r.name) + (sent ? ' <span class="text-emerald-400">✓</span>' : "") + '</div>' +
+                '<div class="text-[10px] text-slate-400 truncate">' + esc(r.district) + (r.district ? " • " : "") + meta + "</div></div>" +
+                '<button type="button" data-bm="send" data-id="' + esc(r.id) + '" class="shrink-0 ' + (sent ? "bg-slate-800 text-slate-300" : "bg-emerald-600 text-white") + ' font-extrabold px-2.5 py-1.5 rounded-lg text-[10px]">' + (sent ? "Tekrar" : "💬 Gönder") + "</button></div>";
+        }).join("") + (bm.list.length > 200 ? '<div class="text-center text-[10px] text-slate-500 py-1">İlk 200 kişi gösteriliyor.</div>' : "");
+    }
+
+    function bmLoadTpl(key) {
+        bm.tpl = key; bm.edited = false;
+        $("bmText").value = BM_TPL[key].text;
+    }
+
+    function bmSend(id) {
+        var r = bm.list.filter(function (x) { return x.id === id; })[0];
+        if (!r) return;
+        var text = renderMsg($("bmText").value, r);
+        if (!text) { showToast("⚠️ Mesaj boş."); return; }
+        if (/__/.test(text)) { showToast("⚠️ Mesajdaki ‘__’ boşluğunu doldurun (ör. indirim oranı)."); return; }
+        markSent(r.id);
+        sendWaMsg(r.phone, text);
+        bmRender();
+    }
+
+    function bmNext() {
+        var r = bm.list.filter(function (x) { return !isSent(x.id); })[0];
+        if (!r) { showToast("✅ Listedeki herkese gönderildi."); return; }
+        bmSend(r.id);
+    }
+
+    window.openBulkMsgModal = function (preset) {
+        if (!hasState()) return;
+        bm.target = BM_DEFAULT_TPL[preset] ? preset : "debt";
+        bmLoadTpl(BM_DEFAULT_TPL[bm.target]);
+        openM("bulkMsgModal");
+        bmRender();
+    };
+
+    // ------------------------------------------------------------------ OLAYLAR
+    document.addEventListener("click", function (e) {
+        var t = e.target && e.target.closest ? e.target.closest("[data-rp],[data-bm]") : null;
+        if (!t) return;
+        var v = t.getAttribute("data-v");
+        if (t.hasAttribute("data-rp")) {
+            var a = t.getAttribute("data-rp");
+            if (a === "close") closeM("reportModal");
+            else if (a === "scope") { rp.scope = v; rpRender(); }
+            else if (a === "period") { rp.period = v; if (v === "custom") { rp.from = $("rpFrom").value || isoD(baseDate()); rp.to = $("rpTo").value || isoD(baseDate()); } rpRender(); }
+            else if (a === "wa") { var tx = rpText(); if (tx) sendWaMsg("", tx); }
+            else if (a === "copy") { var tx2 = rpText(); if (tx2) copyText(tx2); }
+            else if (a === "csv") rpCsv();
+        } else {
+            var b = t.getAttribute("data-bm");
+            if (b === "close") closeM("bulkMsgModal");
+            else if (b === "target") { bm.target = v; if (!bm.edited) bmLoadTpl(BM_DEFAULT_TPL[v]); bmRender(); }
+            else if (b === "send") bmSend(t.getAttribute("data-id"));
+            else if (b === "next") bmNext();
+        }
+    });
+    document.addEventListener("change", function (e) {
+        var id = e.target && e.target.id;
+        if (id === "rpFrom" || id === "rpTo") { rp.period = "custom"; rp.from = $("rpFrom").value; rp.to = $("rpTo").value; rpRender(); }
+        else if (id === "bmTpl") { bmLoadTpl(e.target.value); bmRender(); }
+        else if (id === "bmDistrict") { bm.district = e.target.value; bmRender(); }
+    });
+    document.addEventListener("input", function (e) {
+        if (e.target && e.target.id === "bmText") { bm.edited = true; bmRender(); }
+    });
+})();
     </script>
 </body>
 </html>

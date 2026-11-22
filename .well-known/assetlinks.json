@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.koltukyikama.koltuktr",
+      "sha256_cert_fingerprints": [
+        "E9:A4:E2:21:78:DD:9E:B5:76:05:40:49:FA:E1:CE:6E:AB:7C:09:0B:BC:87:F9:EA:F6:9D:1B:35:11:7C:53:2A"
+      ]
+    }
+  }
+]

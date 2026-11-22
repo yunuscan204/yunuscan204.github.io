@@ -35,7 +35,7 @@ self.addEventListener("fetch", (event) => {
     if (req.method !== "GET") return;
     const url = new URL(req.url);
     if (url.hostname.includes("firebase") || url.hostname.includes("googleapis.com") || url.hostname.includes("open-meteo") || url.hostname.includes("nominatim")) return;
-    if (url.pathname.endsWith(".png")) return;
+    if (url.pathname.endsWith(".png") || url.pathname.endsWith(".apk") || url.pathname.indexOf("/.well-known/") === 0) return;
 
     event.respondWith(
         fetch(req)
